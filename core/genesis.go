@@ -32,8 +32,8 @@ import (
 	"github.com/c88032111/go-gdtu/core/state"
 	"github.com/c88032111/go-gdtu/core/types"
 	"github.com/c88032111/go-gdtu/crypto"
-	"github.com/c88032111/go-gdtu/log"
 	"github.com/c88032111/go-gdtu/gdtudb"
+	"github.com/c88032111/go-gdtu/log"
 	"github.com/c88032111/go-gdtu/params"
 	"github.com/c88032111/go-gdtu/rlp"
 	"github.com/c88032111/go-gdtu/trie"
@@ -340,10 +340,10 @@ func DefaultGenesisBlock() *Genesis {
 	return &Genesis{
 		Config:     params.MainnetChainConfig,
 		Nonce:      999,
-		Timestamp:  1620025986,
+		Timestamp:  1620163034,
 		ExtraData:  hexutil.MustDecode("0x0000000000000000000000000000000000000000000000000000000000000000"),
 		GasLimit:   4700000,
-		Difficulty: big.NewInt(5000000),
+		Difficulty: big.NewInt(30000000),
 		Alloc:      decodePrealloc(mainnetAllocData),
 	}
 }

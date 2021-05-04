@@ -10,7 +10,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f29ba0e-858c-4d53-b220-302de75b30df" name="Default Changelist" comment="" />
+    <list default="true" id="9f29ba0e-858c-4d53-b220-302de75b30df" name="Default Changelist" comment="init project">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/bin/pass.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/bin/pass.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/chain.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/chain_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/large.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/ong66_suite.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/ong66_suiteHelpers.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/suite.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/testdata/chain.rlp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/testdata/genesis.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/testdata/halfchain.rlp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/transaction.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/devp2p/internal/ongtest/types.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/consensus/gdtuash/consensus.go" beforeDir="false" afterPath="$PROJECT_DIR$/consensus/gdtuash/consensus.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/genesis.go" beforeDir="false" afterPath="$PROJECT_DIR$/core/genesis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gdtu/tracers/internal/tracers/assets.go" beforeDir="false" afterPath="$PROJECT_DIR$/gdtu/tracers/internal/tracers/assets.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +46,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GO_FMT" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
@@ -53,13 +71,27 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="init project" />
+    <option name="LAST_COMMIT_MESSAGE" value="init project" />
+  </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="693" y="300" width="604" height="548" key="find.popup" timestamp="1620160964833">
+    <state x="530" y="255" key="RollbackChangesDialog" timestamp="1620162134646">
       <screen x="0" y="23" width="1792" height="1045" />
     </state>
-    <state x="693" y="300" width="604" height="548" key="find.popup/0.23.1792.1045@0.23.1792.1045" timestamp="1620160964833" />
+    <state x="530" y="255" key="RollbackChangesDialog/0.23.1792.1045@0.23.1792.1045" timestamp="1620162134646" />
+    <state x="496" y="285" key="Vcs.Push.Dialog.v2" timestamp="1620161584978">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="496" y="285" key="Vcs.Push.Dialog.v2/0.23.1792.1045@0.23.1792.1045" timestamp="1620161584978" />
+    <state x="693" y="300" width="604" height="548" key="find.popup" timestamp="1620163004500">
+      <screen x="0" y="23" width="1792" height="1045" />
+    </state>
+    <state x="693" y="300" width="604" height="548" key="find.popup/0.23.1792.1045@0.23.1792.1045" timestamp="1620163004500" />
   </component>
 </project>

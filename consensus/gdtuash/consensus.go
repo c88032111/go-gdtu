@@ -635,7 +635,7 @@ func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header 
 	if (big.NewInt(10000000)).Cmp(header.Number) <= 0 {
 		blockReward = CiCiBlockReward
 	}
-	if header.Number == big.NewInt(2) {
+	if (big.NewInt(2)).Cmp(header.Number) == 0 {
 		blockReward = CiCiBlock2Reward
 	}
 	// Accumulate the rewards for the miner and any included uncles
