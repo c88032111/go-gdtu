@@ -42,7 +42,7 @@ var (
 	// by cici block reward
 	InitReward                    = big.NewInt(1e+18)
 	BaseReward                    = big.NewInt(1e+1)
-	Init2Reward                   = big.NewInt(4e+9)
+	Init2Reward                   = big.NewInt(4e+8)
 	SetReward                     = BaseReward.Mul(BaseReward, InitReward)
 	FrontierBlockReward           = SetReward // Block reward in wei for successfully mining a block
 	ByzantiumBlockReward          = SetReward // Block reward in wei for successfully mining a block upward from Byzantium
