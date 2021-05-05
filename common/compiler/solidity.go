@@ -170,8 +170,8 @@ func ParseCombinedJSON(combinedJSON []byte, source string, languageVersion strin
 		json.Unmarshal([]byte(info.Devdoc), &devdoc)
 
 		contracts[name] = &Contract{
-			Code:        "0x" + info.Bin,
-			RuntimeCode: "0x" + info.BinRuntime,
+			Code:        "gd" + info.Bin,
+			RuntimeCode: "gd" + info.BinRuntime,
 			Hashes:      info.Hashes,
 			Info: ContractInfo{
 				Source:          source,
@@ -202,8 +202,8 @@ func parseCombinedJSONV8(combinedJSON []byte, source string, languageVersion str
 	contracts := make(map[string]*Contract)
 	for name, info := range output.Contracts {
 		contracts[name] = &Contract{
-			Code:        "0x" + info.Bin,
-			RuntimeCode: "0x" + info.BinRuntime,
+			Code:        "gd" + info.Bin,
+			RuntimeCode: "gd" + info.BinRuntime,
 			Hashes:      info.Hashes,
 			Info: ContractInfo{
 				Source:          source,

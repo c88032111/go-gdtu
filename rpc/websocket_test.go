@@ -222,8 +222,8 @@ func wsPingTestServer(t *testing.T, sendPing <-chan struct{}) *http.Server {
 func wsPingTestHandler(t *testing.T, conn *websocket.Conn, shutdown, sendPing <-chan struct{}) {
 	// Canned responses for the gdtu_subscribe call in TestClientWebsocketPing.
 	const (
-		subResp   = `{"jsonrpc":"2.0","id":1,"result":"0x00"}`
-		subNotify = `{"jsonrpc":"2.0","Method":"gdtu_subscription","params":{"subscription":"0x00","result":1}}`
+		subResp   = `{"jsonrpc":"2.0","id":1,"result":"gd00"}`
+		subNotify = `{"jsonrpc":"2.0","Method":"gdtu_subscription","params":{"subscription":"gd00","result":1}}`
 	)
 
 	// Handle subscribe request.

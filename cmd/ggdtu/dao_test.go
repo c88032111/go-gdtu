@@ -31,14 +31,14 @@ import (
 // Genesis block for nodes which don't care about the DAO fork (i.e. not configured)
 var daoOldGenesis = `{
 	"alloc"      : {},
-	"coinbase"   : "0x0000000000000000000000000000000000000000",
-	"difficulty" : "0x20000",
+	"coinbase"   : "gd0000000000000000000000000000000000000000",
+	"difficulty" : "gd20000",
 	"extraData"  : "",
-	"gasLimit"   : "0x2fefd8",
-	"nonce"      : "0x0000000000000042",
-	"mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
-	"parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
-	"timestamp"  : "0x00",
+	"gasLimit"   : "gd2fefd8",
+	"nonce"      : "gd0000000000000042",
+	"mixhash"    : "gd0000000000000000000000000000000000000000000000000000000000000000",
+	"parentHash" : "gd0000000000000000000000000000000000000000000000000000000000000000",
+	"timestamp"  : "gd00",
 	"config"     : {
 		"homesteadBlock" : 0
 	}
@@ -47,14 +47,14 @@ var daoOldGenesis = `{
 // Genesis block for nodes which actively oppose the DAO fork
 var daoNoForkGenesis = `{
 	"alloc"      : {},
-	"coinbase"   : "0x0000000000000000000000000000000000000000",
-	"difficulty" : "0x20000",
+	"coinbase"   : "gd0000000000000000000000000000000000000000",
+	"difficulty" : "gd20000",
 	"extraData"  : "",
-	"gasLimit"   : "0x2fefd8",
-	"nonce"      : "0x0000000000000042",
-	"mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
-	"parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
-	"timestamp"  : "0x00",
+	"gasLimit"   : "gd2fefd8",
+	"nonce"      : "gd0000000000000042",
+	"mixhash"    : "gd0000000000000000000000000000000000000000000000000000000000000000",
+	"parentHash" : "gd0000000000000000000000000000000000000000000000000000000000000000",
+	"timestamp"  : "gd00",
 	"config"     : {
 		"homesteadBlock" : 0,
 		"daoForkBlock"   : 314,
@@ -65,14 +65,14 @@ var daoNoForkGenesis = `{
 // Genesis block for nodes which actively support the DAO fork
 var daoProForkGenesis = `{
 	"alloc"      : {},
-	"coinbase"   : "0x0000000000000000000000000000000000000000",
-	"difficulty" : "0x20000",
+	"coinbase"   : "gd0000000000000000000000000000000000000000",
+	"difficulty" : "gd20000",
 	"extraData"  : "",
-	"gasLimit"   : "0x2fefd8",
-	"nonce"      : "0x0000000000000042",
-	"mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
-	"parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
-	"timestamp"  : "0x00",
+	"gasLimit"   : "gd2fefd8",
+	"nonce"      : "gd0000000000000042",
+	"mixhash"    : "gd0000000000000000000000000000000000000000000000000000000000000000",
+	"parentHash" : "gd0000000000000000000000000000000000000000000000000000000000000000",
+	"timestamp"  : "gd00",
 	"config"     : {
 		"homesteadBlock" : 0,
 		"daoForkBlock"   : 314,
@@ -129,7 +129,7 @@ func testDAOForkBlockNewChain(t *testing.T, test int, genesis string, expectBloc
 	}
 	defer db.Close()
 
-	genesisHash := common.HexToHash("0xd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3")
+	genesisHash := common.HexToHash("gdd4e56740f876aef8c010b86a40d5f56745a118d0906a34e69aec8c0db1cb8fa3")
 	if genesis != "" {
 		genesisHash = daoGenesisHash
 	}

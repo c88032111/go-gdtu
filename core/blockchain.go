@@ -37,8 +37,8 @@ import (
 	"github.com/c88032111/go-gdtu/core/state/snapshot"
 	"github.com/c88032111/go-gdtu/core/types"
 	"github.com/c88032111/go-gdtu/core/vm"
-	"github.com/c88032111/go-gdtu/gdtudb"
 	"github.com/c88032111/go-gdtu/event"
+	"github.com/c88032111/go-gdtu/gdtudb"
 	"github.com/c88032111/go-gdtu/log"
 	"github.com/c88032111/go-gdtu/metrics"
 	"github.com/c88032111/go-gdtu/params"
@@ -162,9 +162,9 @@ type BlockChain struct {
 	cacheConfig *CacheConfig        // Cache configuration for pruning
 
 	db     gdtudb.Database // Low level persistent database to store final content in
-	snaps  *snapshot.Tree // Snapshot tree for fast trie leaf access
-	triegc *prque.Prque   // Priority queue mapping block numbers to tries to gc
-	gcproc time.Duration  // Accumulates canonical block processing for trie dumping
+	snaps  *snapshot.Tree  // Snapshot tree for fast trie leaf access
+	triegc *prque.Prque    // Priority queue mapping block numbers to tries to gc
+	gcproc time.Duration   // Accumulates canonical block processing for trie dumping
 
 	// txLookupLimit is the maximum number of blocks from head whose tx indices
 	// are reserved:
@@ -2404,7 +2404,7 @@ func (bc *BlockChain) reportBlock(block *types.Block, receipts types.Receipts, e
 Chain config: %v
 
 Number: %v
-Hash: 0x%x
+Hash: gd%x
 %v
 
 Error: %v

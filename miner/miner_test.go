@@ -28,9 +28,9 @@ import (
 	"github.com/c88032111/go-gdtu/core/state"
 	"github.com/c88032111/go-gdtu/core/types"
 	"github.com/c88032111/go-gdtu/core/vm"
+	"github.com/c88032111/go-gdtu/event"
 	"github.com/c88032111/go-gdtu/gdtu/downloader"
 	"github.com/c88032111/go-gdtu/gdtudb/memorydb"
-	"github.com/c88032111/go-gdtu/event"
 	"github.com/c88032111/go-gdtu/trie"
 )
 
@@ -80,7 +80,7 @@ func (bc *testBlockChain) SubscribeChainHeadEvent(ch chan<- core.ChainHeadEvent)
 
 func TestMiner(t *testing.T) {
 	miner, mux := createMiner(t)
-	miner.Start(common.HexToAddress("0x12345"))
+	miner.Start(common.HexToAddress("gd12345"))
 	waitForMiningState(t, miner, true)
 	// Start the downloader
 	mux.Post(downloader.StartEvent{})
@@ -107,7 +107,7 @@ func TestMiner(t *testing.T) {
 // downloader StartEvent.
 func TestMinerDownloaderFirstFails(t *testing.T) {
 	miner, mux := createMiner(t)
-	miner.Start(common.HexToAddress("0x12345"))
+	miner.Start(common.HexToAddress("gd12345"))
 	waitForMiningState(t, miner, true)
 	// Start the downloader
 	mux.Post(downloader.StartEvent{})
@@ -139,7 +139,7 @@ func TestMinerDownloaderFirstFails(t *testing.T) {
 func TestMinerStartStopAfterDownloaderEvents(t *testing.T) {
 	miner, mux := createMiner(t)
 
-	miner.Start(common.HexToAddress("0x12345"))
+	miner.Start(common.HexToAddress("gd12345"))
 	waitForMiningState(t, miner, true)
 	// Start the downloader
 	mux.Post(downloader.StartEvent{})
@@ -152,7 +152,7 @@ func TestMinerStartStopAfterDownloaderEvents(t *testing.T) {
 	miner.Stop()
 	waitForMiningState(t, miner, false)
 
-	miner.Start(common.HexToAddress("0x678910"))
+	miner.Start(common.HexToAddress("gd678910"))
 	waitForMiningState(t, miner, true)
 
 	miner.Stop()
@@ -162,20 +162,20 @@ func TestMinerStartStopAfterDownloaderEvents(t *testing.T) {
 func TestStartWhileDownload(t *testing.T) {
 	miner, mux := createMiner(t)
 	waitForMiningState(t, miner, false)
-	miner.Start(common.HexToAddress("0x12345"))
+	miner.Start(common.HexToAddress("gd12345"))
 	waitForMiningState(t, miner, true)
 	// Stop the downloader and wait for the update loop to run
 	mux.Post(downloader.StartEvent{})
 	waitForMiningState(t, miner, false)
 	// Starting the miner after the downloader should not work
-	miner.Start(common.HexToAddress("0x12345"))
+	miner.Start(common.HexToAddress("gd12345"))
 	waitForMiningState(t, miner, false)
 }
 
 func TestStartStopMiner(t *testing.T) {
 	miner, _ := createMiner(t)
 	waitForMiningState(t, miner, false)
-	miner.Start(common.HexToAddress("0x12345"))
+	miner.Start(common.HexToAddress("gd12345"))
 	waitForMiningState(t, miner, true)
 	miner.Stop()
 	waitForMiningState(t, miner, false)
@@ -184,7 +184,7 @@ func TestStartStopMiner(t *testing.T) {
 func TestCloseMiner(t *testing.T) {
 	miner, _ := createMiner(t)
 	waitForMiningState(t, miner, false)
-	miner.Start(common.HexToAddress("0x12345"))
+	miner.Start(common.HexToAddress("gd12345"))
 	waitForMiningState(t, miner, true)
 	// Terminate the miner and wait for the update loop to run
 	miner.Close()
@@ -196,19 +196,19 @@ func TestCloseMiner(t *testing.T) {
 func TestMinerSetGdturbase(t *testing.T) {
 	miner, mux := createMiner(t)
 	// Start with a 'bad' mining address
-	miner.Start(common.HexToAddress("0xdead"))
+	miner.Start(common.HexToAddress("gddead"))
 	waitForMiningState(t, miner, true)
 	// Start the downloader
 	mux.Post(downloader.StartEvent{})
 	waitForMiningState(t, miner, false)
 	// Now user tries to configure proper mining address
-	miner.Start(common.HexToAddress("0x1337"))
+	miner.Start(common.HexToAddress("gd1337"))
 	// Stop the downloader and wait for the update loop to run
 	mux.Post(downloader.DoneEvent{})
 
 	waitForMiningState(t, miner, true)
 	// The miner should now be using the good address
-	if got, exp := miner.coinbase, common.HexToAddress("0x1337"); got != exp {
+	if got, exp := miner.coinbase, common.HexToAddress("gd1337"); got != exp {
 		t.Fatalf("Wrgdtu coinbase, got %x expected %x", got, exp)
 	}
 }

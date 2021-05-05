@@ -344,7 +344,7 @@ func (api *PrivateDebugAPI) GetBadBlocks(ctx context.Context) ([]*BadBlockArgs, 
 		if rlpBytes, err := rlp.EncodeToBytes(block); err != nil {
 			blockRlp = err.Error() // Hacky, but hey, it works
 		} else {
-			blockRlp = fmt.Sprintf("0x%x", rlpBytes)
+			blockRlp = fmt.Sprintf("gd%x", rlpBytes)
 		}
 		if blockJSON, err = gdtuapi.RPCMarshalBlock(block, true, true); err != nil {
 			blockJSON = map[string]interface{}{"error": err.Error()}

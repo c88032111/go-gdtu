@@ -77,7 +77,7 @@ func encodeID(b []byte) ID {
 	if id == "" {
 		id = "0" // ID's are RPC quantities, no leading zero's and 0 is 0x0.
 	}
-	return ID("0x" + id)
+	return ID("gd" + id)
 }
 
 type notifierKey struct{}

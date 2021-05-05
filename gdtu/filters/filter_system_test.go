@@ -223,11 +223,11 @@ func TestPendingTxFilter(t *testing.T) {
 		api     = NewPublicFilterAPI(backend, false, deadline)
 
 		transactions = []*types.Transaction{
-			types.NewTransaction(0, common.HexToAddress("0xb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
-			types.NewTransaction(1, common.HexToAddress("0xb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
-			types.NewTransaction(2, common.HexToAddress("0xb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
-			types.NewTransaction(3, common.HexToAddress("0xb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
-			types.NewTransaction(4, common.HexToAddress("0xb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
+			types.NewTransaction(0, common.HexToAddress("gdb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
+			types.NewTransaction(1, common.HexToAddress("gdb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
+			types.NewTransaction(2, common.HexToAddress("gdb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
+			types.NewTransaction(3, common.HexToAddress("gdb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
+			types.NewTransaction(4, common.HexToAddress("gdb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil),
 		}
 
 		hashes []common.Hash
@@ -342,7 +342,7 @@ func TestInvalidGetLogsRequest(t *testing.T) {
 		db        = rawdb.NewMemoryDatabase()
 		backend   = &testBackend{db: db}
 		api       = NewPublicFilterAPI(backend, false, deadline)
-		blockHash = common.HexToHash("0x1111111111111111111111111111111111111111111111111111111111111111")
+		blockHash = common.HexToHash("gd1111111111111111111111111111111111111111111111111111111111111111")
 	)
 
 	// Reason: Cannot specify both BlockHash and FromBlock/ToBlock)
@@ -368,13 +368,13 @@ func TestLogFilter(t *testing.T) {
 		backend = &testBackend{db: db}
 		api     = NewPublicFilterAPI(backend, false, deadline)
 
-		firstAddr      = common.HexToAddress("0x1111111111111111111111111111111111111111")
-		secondAddr     = common.HexToAddress("0x2222222222222222222222222222222222222222")
-		thirdAddress   = common.HexToAddress("0x3333333333333333333333333333333333333333")
-		notUsedAddress = common.HexToAddress("0x9999999999999999999999999999999999999999")
-		firstTopic     = common.HexToHash("0x1111111111111111111111111111111111111111111111111111111111111111")
-		secondTopic    = common.HexToHash("0x2222222222222222222222222222222222222222222222222222222222222222")
-		notUsedTopic   = common.HexToHash("0x9999999999999999999999999999999999999999999999999999999999999999")
+		firstAddr      = common.HexToAddress("gd1111111111111111111111111111111111111111")
+		secondAddr     = common.HexToAddress("gd2222222222222222222222222222222222222222")
+		thirdAddress   = common.HexToAddress("gd3333333333333333333333333333333333333333")
+		notUsedAddress = common.HexToAddress("gd9999999999999999999999999999999999999999")
+		firstTopic     = common.HexToHash("gd1111111111111111111111111111111111111111111111111111111111111111")
+		secondTopic    = common.HexToHash("gd2222222222222222222222222222222222222222222222222222222222222222")
+		notUsedTopic   = common.HexToHash("gd9999999999999999999999999999999999999999999999999999999999999999")
 
 		// posted twice, once as regular logs and once as pending logs.
 		allLogs = []*types.Log{
@@ -482,15 +482,15 @@ func TestPendingLogsSubscription(t *testing.T) {
 		backend = &testBackend{db: db}
 		api     = NewPublicFilterAPI(backend, false, deadline)
 
-		firstAddr      = common.HexToAddress("0x1111111111111111111111111111111111111111")
-		secondAddr     = common.HexToAddress("0x2222222222222222222222222222222222222222")
-		thirdAddress   = common.HexToAddress("0x3333333333333333333333333333333333333333")
-		notUsedAddress = common.HexToAddress("0x9999999999999999999999999999999999999999")
-		firstTopic     = common.HexToHash("0x1111111111111111111111111111111111111111111111111111111111111111")
-		secondTopic    = common.HexToHash("0x2222222222222222222222222222222222222222222222222222222222222222")
-		thirdTopic     = common.HexToHash("0x3333333333333333333333333333333333333333333333333333333333333333")
-		fourthTopic    = common.HexToHash("0x4444444444444444444444444444444444444444444444444444444444444444")
-		notUsedTopic   = common.HexToHash("0x9999999999999999999999999999999999999999999999999999999999999999")
+		firstAddr      = common.HexToAddress("gd1111111111111111111111111111111111111111")
+		secondAddr     = common.HexToAddress("gd2222222222222222222222222222222222222222")
+		thirdAddress   = common.HexToAddress("gd3333333333333333333333333333333333333333")
+		notUsedAddress = common.HexToAddress("gd9999999999999999999999999999999999999999")
+		firstTopic     = common.HexToHash("gd1111111111111111111111111111111111111111111111111111111111111111")
+		secondTopic    = common.HexToHash("gd2222222222222222222222222222222222222222222222222222222222222222")
+		thirdTopic     = common.HexToHash("gd3333333333333333333333333333333333333333333333333333333333333333")
+		fourthTopic    = common.HexToHash("gd4444444444444444444444444444444444444444444444444444444444444444")
+		notUsedTopic   = common.HexToHash("gd9999999999999999999999999999999999999999999999999999999999999999")
 
 		allLogs = [][]*types.Log{
 			{{Address: firstAddr, Topics: []common.Hash{}, BlockNumber: 0}},
@@ -630,7 +630,7 @@ func TestPendingTxFilterDeadlock(t *testing.T) {
 			default:
 			}
 
-			tx := types.NewTransaction(i, common.HexToAddress("0xb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil)
+			tx := types.NewTransaction(i, common.HexToAddress("gdb794f5ea0ba39494ce83a213fffba74279579268"), new(big.Int), 0, new(big.Int), nil)
 			backend.txFeed.Send(core.NewTxsEvent{Txs: []*types.Transaction{tx}})
 			i++
 		}

@@ -39,7 +39,7 @@
     "name": "ShallowCopy",
     "uid": "GGDTU-2020-03",
     "summary": "A consensus flaw in Ggdtu, related to `datacopy` precompile",
-    "description": "Ggdtu erroneously performed a 'shallow' copy when the precompiled `datacopy` (at `0x00...04`) was invoked. An attacker could deploy a contract that uses the shallow copy to corrupt the contents of the `RETURNDATA`, thus causing a consensus failure.",
+    "description": "Ggdtu erroneously performed a 'shallow' copy when the precompiled `datacopy` (at `gd00...04`) was invoked. An attacker could deploy a contract that uses the shallow copy to corrupt the contents of the `RETURNDATA`, thus causing a consensus failure.",
     "links": [
       "https://blog.gdtu2020.com/2020/11/12/ggdtu_security_release/",
       "https://github.com/c88032111/go-gdtu/security/advisories/GHSA-69v6-xc2j-r2jf"

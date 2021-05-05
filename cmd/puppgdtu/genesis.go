@@ -380,7 +380,7 @@ func newParityChainSpec(network string, genesis *core.Genesis, bootnodes []strin
 	spec.Engine.Gdtuash.Params.MinimumDifficulty = (*hexutil.Big)(params.MinimumDifficulty)
 	spec.Engine.Gdtuash.Params.DifficultyBoundDivisor = (*hexutil.Big)(params.DifficultyBoundDivisor)
 	spec.Engine.Gdtuash.Params.DurationLimit = (*hexutil.Big)(params.DurationLimit)
-	spec.Engine.Gdtuash.Params.BlockReward["0x0"] = hexutil.EncodeBig(gdtuash.FrontierBlockReward)
+	spec.Engine.Gdtuash.Params.BlockReward["gd0"] = hexutil.EncodeBig(gdtuash.FrontierBlockReward)
 
 	// Homestead
 	spec.Engine.Gdtuash.Params.HomesteadTransition = hexutil.Uint64(genesis.Config.HomesteadBlock.Uint64())

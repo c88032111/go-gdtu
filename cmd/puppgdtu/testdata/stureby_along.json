@@ -1,41 +1,41 @@
 {
   "sealEngine": "Gdtuash",
   "params": {
-    "accountStartNonce": "0x0",
-    "maximumExtraDataSize": "0x20",
-    "homesteadForkBlock": "0x2710",
-    "daoHardforkBlock": "0x0",
-    "EIP150ForkBlock": "0x3a98",
-    "EIP158ForkBlock": "0x59d8",
-    "byzantiumForkBlock": "0x7530",
-    "constantinopleForkBlock": "0x9c40",
-    "constantinopleFixForkBlock": "0x9c40",
-    "istanbulForkBlock": "0xc350",
-    "minGasLimit": "0x1388",
-    "maxGasLimit": "0x7fffffffffffffff",
+    "accountStartNonce": "gd0",
+    "maximumExtraDataSize": "gd20",
+    "homesteadForkBlock": "gd2710",
+    "daoHardforkBlock": "gd0",
+    "EIP150ForkBlock": "gd3a98",
+    "EIP158ForkBlock": "gd59d8",
+    "byzantiumForkBlock": "gd7530",
+    "constantinopleForkBlock": "gd9c40",
+    "constantinopleFixForkBlock": "gd9c40",
+    "istanbulForkBlock": "gdc350",
+    "minGasLimit": "gd1388",
+    "maxGasLimit": "gd7fffffffffffffff",
     "tieBreakingGas": false,
-    "gasLimitBoundDivisor": "0x400",
-    "minimumDifficulty": "0x20000",
-    "difficultyBoundDivisor": "0x800",
-    "durationLimit": "0xd",
-    "blockReward": "0x4563918244f40000",
-    "networkID": "0x4cb2e",
-    "chainID": "0x4cb2e",
+    "gasLimitBoundDivisor": "gd400",
+    "minimumDifficulty": "gd20000",
+    "difficultyBoundDivisor": "gd800",
+    "durationLimit": "gdd",
+    "blockReward": "gd4563918244f40000",
+    "networkID": "gd4cb2e",
+    "chainID": "gd4cb2e",
     "allowFutureBlocks": false
   },
   "genesis": {
-    "nonce": "0x0000000000000000",
-    "difficulty": "0x20000",
-    "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "author": "0x0000000000000000000000000000000000000000",
-    "timestamp": "0x59a4e76d",
-    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "extraData": "0x0000000000000000000000000000000000000000000000000000000b4dc0ffee",
-    "gasLimit": "0x47b760"
+    "nonce": "gd0000000000000000",
+    "difficulty": "gd20000",
+    "mixHash": "gd0000000000000000000000000000000000000000000000000000000000000000",
+    "author": "gd0000000000000000000000000000000000000000",
+    "timestamp": "gd59a4e76d",
+    "parentHash": "gd0000000000000000000000000000000000000000000000000000000000000000",
+    "extraData": "gd0000000000000000000000000000000000000000000000000000000b4dc0ffee",
+    "gasLimit": "gd47b760"
   },
   "accounts": {
     "0000000000000000000000000000000000000001": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "ecrecover",
         "linear": {
@@ -45,7 +45,7 @@
       }
     },
     "0000000000000000000000000000000000000002": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "sha256",
         "linear": {
@@ -55,7 +55,7 @@
       }
     },
     "0000000000000000000000000000000000000003": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "ripemd160",
         "linear": {
@@ -65,7 +65,7 @@
       }
     },
     "0000000000000000000000000000000000000004": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "identity",
         "linear": {
@@ -75,38 +75,38 @@
       }
     },
     "0000000000000000000000000000000000000005": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "modexp",
-        "startingBlock": "0x7530"
+        "startingBlock": "gd7530"
       }
     },
     "0000000000000000000000000000000000000006": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "alt_bn128_G1_add",
-        "startingBlock": "0x7530"
+        "startingBlock": "gd7530"
       }
     },
     "0000000000000000000000000000000000000007": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "alt_bn128_G1_mul",
-        "startingBlock": "0x7530"
+        "startingBlock": "gd7530"
       }
     },
     "0000000000000000000000000000000000000008": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "alt_bn128_pairing_product",
-        "startingBlock": "0x7530"
+        "startingBlock": "gd7530"
       }
     },
     "0000000000000000000000000000000000000009": {
-      "balance": "0x1",
+      "balance": "gd1",
       "precompiled": {
         "name": "blake2_compression",
-        "startingBlock": "0xc350"
+        "startingBlock": "gdc350"
       }
     }
   }

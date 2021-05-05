@@ -289,8 +289,8 @@ func TestTestVectorsV5(t *testing.T) {
 		idB     = enode.PubkeyToIDV4(&testKeyB.PublicKey)
 		addr    = "127.0.0.1"
 		session = &session{
-			writeKey: hexutil.MustDecode("0x00000000000000000000000000000000"),
-			readKey:  hexutil.MustDecode("0x01010101010101010101010101010101"),
+			writeKey: hexutil.MustDecode("gd00000000000000000000000000000000"),
+			readKey:  hexutil.MustDecode("gd01010101010101010101010101010101"),
 		}
 		challenge0A, challenge1A, challenge0B Whoareyou
 	)
@@ -599,7 +599,7 @@ func hexFile(file string) []byte {
 	}
 
 	// Parse the hex.
-	if bytes.HasPrefix(text, []byte("0x")) {
+	if bytes.HasPrefix(text, []byte("gd")) {
 		text = text[2:]
 	}
 	data := make([]byte, hex.DecodedLen(len(text)))

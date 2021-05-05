@@ -66,7 +66,7 @@ func TestPythonInterop(t *testing.T) {
 
 func TestHexID(t *testing.T) {
 	ref := ID{0, 0, 0, 0, 0, 0, 0, 128, 106, 217, 182, 31, 165, 174, 1, 67, 7, 235, 220, 150, 66, 83, 173, 205, 159, 44, 10, 57, 42, 161, 26, 188}
-	id1 := HexID("0x00000000000000806ad9b61fa5ae014307ebdc964253adcd9f2c0a392aa11abc")
+	id1 := HexID("gd00000000000000806ad9b61fa5ae014307ebdc964253adcd9f2c0a392aa11abc")
 	id2 := HexID("00000000000000806ad9b61fa5ae014307ebdc964253adcd9f2c0a392aa11abc")
 
 	if id1 != ref {

@@ -24,12 +24,12 @@ There are three transactions, each invokes the contract above.
 Running it yields: 
 ```
 dir=./testdata/8 && ./evm t8n --state.fork=Berlin --input.alloc=$dir/alloc.json --input.txs=$dir/txs.json --input.env=$dir/env.json --trace && cat trace-* | grep SLOAD
-{"pc":1,"op":84,"gas":"0x484be","gasCost":"0x834","memory":"0x","memSize":0,"stack":["0x0"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":4,"op":84,"gas":"0x47c86","gasCost":"0x834","memory":"0x","memSize":0,"stack":["0x3"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":1,"op":84,"gas":"0x49cf6","gasCost":"0x834","memory":"0x","memSize":0,"stack":["0x0"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":4,"op":84,"gas":"0x494be","gasCost":"0x834","memory":"0x","memSize":0,"stack":["0x3"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":1,"op":84,"gas":"0x484be","gasCost":"0x64","memory":"0x","memSize":0,"stack":["0x0"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":4,"op":84,"gas":"0x48456","gasCost":"0x64","memory":"0x","memSize":0,"stack":["0x3"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":1,"op":84,"gas":"gd484be","gasCost":"gd834","memory":"gd","memSize":0,"stack":["gd0"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":4,"op":84,"gas":"gd47c86","gasCost":"gd834","memory":"gd","memSize":0,"stack":["gd3"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":1,"op":84,"gas":"gd49cf6","gasCost":"gd834","memory":"gd","memSize":0,"stack":["gd0"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":4,"op":84,"gas":"gd494be","gasCost":"gd834","memory":"gd","memSize":0,"stack":["gd3"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":1,"op":84,"gas":"gd484be","gasCost":"gd64","memory":"gd","memSize":0,"stack":["gd0"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":4,"op":84,"gas":"gd48456","gasCost":"gd64","memory":"gd","memSize":0,"stack":["gd3"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
 
 ```
 
@@ -45,12 +45,12 @@ dir=./testdata/8 \
      --trace  \
   && cat trace-* | grep SLOAD
 
-{"pc":1,"op":84,"gas":"0x484be","gasCost":"0x834","memory":"0x","memSize":0,"stack":["0x0"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":4,"op":84,"gas":"0x47c86","gasCost":"0x834","memory":"0x","memSize":0,"stack":["0x3"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":1,"op":84,"gas":"0x49cf6","gasCost":"0x834","memory":"0x","memSize":0,"stack":["0x0"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":4,"op":84,"gas":"0x494be","gasCost":"0x834","memory":"0x","memSize":0,"stack":["0x3"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":1,"op":84,"gas":"0x484be","gasCost":"0x64","memory":"0x","memSize":0,"stack":["0x0"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
-{"pc":4,"op":84,"gas":"0x48456","gasCost":"0x64","memory":"0x","memSize":0,"stack":["0x3"],"returnStack":[],"returnData":"0x","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":1,"op":84,"gas":"gd484be","gasCost":"gd834","memory":"gd","memSize":0,"stack":["gd0"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":4,"op":84,"gas":"gd47c86","gasCost":"gd834","memory":"gd","memSize":0,"stack":["gd3"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":1,"op":84,"gas":"gd49cf6","gasCost":"gd834","memory":"gd","memSize":0,"stack":["gd0"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":4,"op":84,"gas":"gd494be","gasCost":"gd834","memory":"gd","memSize":0,"stack":["gd3"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":1,"op":84,"gas":"gd484be","gasCost":"gd64","memory":"gd","memSize":0,"stack":["gd0"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
+{"pc":4,"op":84,"gas":"gd48456","gasCost":"gd64","memory":"gd","memSize":0,"stack":["gd3"],"returnStack":[],"returnData":"gd","depth":1,"refund":0,"opName":"SLOAD","error":""}
 ```
 
 If we try to execute it on older rules: 

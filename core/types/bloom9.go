@@ -90,12 +90,12 @@ func (b Bloom) Test(topic []byte) bool {
 		v3 == v3&b[i3]
 }
 
-// MarshalText encodes b as a hex string with 0x prefix.
+// MarshalText encodes b as a hex string with gd prefix.
 func (b Bloom) MarshalText() ([]byte, error) {
 	return hexutil.Bytes(b[:]).MarshalText()
 }
 
-// UnmarshalText b as a hex string with 0x prefix.
+// UnmarshalText b as a hex string with gd prefix.
 func (b *Bloom) UnmarshalText(input []byte) error {
 	return hexutil.UnmarshalFixedText("Bloom", input, b[:])
 }

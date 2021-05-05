@@ -66,7 +66,7 @@ func TestCacheGeneration(t *testing.T) {
 		{
 			size:  1024,
 			epoch: 0,
-			cache: hexutil.MustDecode("0x" +
+			cache: hexutil.MustDecode("gd" +
 				"7ce2991c951f7bf4c4c1bb119887ee07871eb5339d7b97b8588e85c742de90e5bafd5bbe6ce93a134fb6be9ad3e30db99d9528a2ea7846833f52e9ca119b6b54" +
 				"8979480c46e19972bd0738779c932c1b43e665a2fd3122fc3ddb2691f353ceb0ed3e38b8f51fd55b6940290743563c9f8fa8822e611924657501a12aafab8a8d" +
 				"88fb5fbae3a99d14792406672e783a06940a42799b1c38bc28715db6d37cb11f9f6b24e386dc52dd8c286bd8c36fa813dffe4448a9f56ebcbeea866b42f68d22" +
@@ -87,7 +87,7 @@ func TestCacheGeneration(t *testing.T) {
 		{
 			size:  1024,
 			epoch: 1,
-			cache: hexutil.MustDecode("0x" +
+			cache: hexutil.MustDecode("gd" +
 				"1f56855d59cc5a085720899b4377a0198f1abe948d85fe5820dc0e346b7c0931b9cde8e541d751de3b2b3275d0aabfae316209d5879297d8bd99f8a033c9d4df" +
 				"35add1029f4e6404a022d504fb8023e42989aba985a65933b0109c7218854356f9284983c9e7de97de591828ae348b63d1fc78d8db58157344d4e06530ffd422" +
 				"5c7f6080d451ff94961ec2dd9e28e6d81b49102451676dbdcb6ef1094c1e8b29e7e808d47b2ba5aeb52dabf00d5f0ee08c116289cbf56d8132e5ca557c3d6220" +
@@ -130,7 +130,7 @@ func TestDatasetGeneration(t *testing.T) {
 			epoch:       0,
 			cacheSize:   1024,
 			datasetSize: 32 * 1024,
-			dataset: hexutil.MustDecode("0x" +
+			dataset: hexutil.MustDecode("gd" +
 				"4bc09fbd530a041dd2ec296110a29e8f130f179c59d223f51ecce3126e8b0c74326abc2f32ccd9d7f976bd0944e3ccf8479db39343cbbffa467046ca97e2da63" +
 				"da5f9d9688c7c33ab7b8aace570e422fa48b24659b72fc534669209d66389ca15b099c5604601e7581488e3bd6925cec0f12d465f8004d4fa84793f8e1e46a1b" +
 				"31b7298991c6142f4f0b6e6b296728ae5fa63ccb667b61fbb1b078003d18d97b906af157debed5e6c55d5a61cae90c85f9e97d565314a2f9fd9e0c08430547d0" +
@@ -673,11 +673,11 @@ func TestHashimoto(t *testing.T) {
 	generateDataset(dataset, 0, cache)
 
 	// Create a block to verify
-	hash := hexutil.MustDecode("0xc9149cc0386e689d789a1c2f3d5d169a61a6218ed30e74414dc736e442ef3d1f")
+	hash := hexutil.MustDecode("gdc9149cc0386e689d789a1c2f3d5d169a61a6218ed30e74414dc736e442ef3d1f")
 	nonce := uint64(0)
 
-	wantDigest := hexutil.MustDecode("0xe4073cffaef931d37117cefd9afd27ea0f1cad6a981dd2605c4a1ac97c519800")
-	wantResult := hexutil.MustDecode("0xd3539235ee2e6f8db665c0a72169f55b7f6c605712330b778ec3944f0eb5a557")
+	wantDigest := hexutil.MustDecode("gde4073cffaef931d37117cefd9afd27ea0f1cad6a981dd2605c4a1ac97c519800")
+	wantResult := hexutil.MustDecode("gdd3539235ee2e6f8db665c0a72169f55b7f6c605712330b778ec3944f0eb5a557")
 
 	digest, result := hashimotoLight(32*1024, cache, hash, nonce)
 	if !bytes.Equal(digest, wantDigest) {
@@ -707,18 +707,18 @@ func TestConcurrentDiskCacheGeneration(t *testing.T) {
 	// Define a heavy enough block, one from mainnet should do
 	block := types.NewBlockWithHeader(&types.Header{
 		Number:      big.NewInt(3311058),
-		ParentHash:  common.HexToHash("0xd783efa4d392943503f28438ad5830b2d5964696ffc285f338585e9fe0a37a05"),
-		UncleHash:   common.HexToHash("0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"),
-		Coinbase:    common.HexToAddress("0xc0ea08a2d404d3172d2add29a45be56da40e2949"),
-		Root:        common.HexToHash("0x77d14e10470b5850332524f8cd6f69ad21f070ce92dca33ab2858300242ef2f1"),
-		TxHash:      common.HexToHash("0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"),
-		ReceiptHash: common.HexToHash("0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"),
+		ParentHash:  common.HexToHash("gdd783efa4d392943503f28438ad5830b2d5964696ffc285f338585e9fe0a37a05"),
+		UncleHash:   common.HexToHash("gd1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347"),
+		Coinbase:    common.HexToAddress("gdc0ea08a2d404d3172d2add29a45be56da40e2949"),
+		Root:        common.HexToHash("gd77d14e10470b5850332524f8cd6f69ad21f070ce92dca33ab2858300242ef2f1"),
+		TxHash:      common.HexToHash("gd56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"),
+		ReceiptHash: common.HexToHash("gd56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421"),
 		Difficulty:  big.NewInt(167925187834220),
 		GasLimit:    4015682,
 		GasUsed:     0,
 		Time:        1488928920,
 		Extra:       []byte("www.bw.com"),
-		MixDigest:   common.HexToHash("0x3e140b0784516af5e5ec6730f2fb20cca22f32be399b9e4ad77d32541f798cd0"),
+		MixDigest:   common.HexToHash("gd3e140b0784516af5e5ec6730f2fb20cca22f32be399b9e4ad77d32541f798cd0"),
 		Nonce:       types.EncodeNonce(0xf400cd0006070c49),
 	})
 	// Simulate multiple processes sharing the same datadir
@@ -764,7 +764,7 @@ func BenchmarkHashimotoLight(b *testing.B) {
 	cache := make([]uint32, cacheSize(1)/4)
 	generateCache(cache, 0, make([]byte, 32))
 
-	hash := hexutil.MustDecode("0xc9149cc0386e689d789a1c2f3d5d169a61a6218ed30e74414dc736e442ef3d1f")
+	hash := hexutil.MustDecode("gdc9149cc0386e689d789a1c2f3d5d169a61a6218ed30e74414dc736e442ef3d1f")
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -780,7 +780,7 @@ func BenchmarkHashimotoFullSmall(b *testing.B) {
 	dataset := make([]uint32, 32*65536/4)
 	generateDataset(dataset, 0, cache)
 
-	hash := hexutil.MustDecode("0xc9149cc0386e689d789a1c2f3d5d169a61a6218ed30e74414dc736e442ef3d1f")
+	hash := hexutil.MustDecode("gdc9149cc0386e689d789a1c2f3d5d169a61a6218ed30e74414dc736e442ef3d1f")
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {

@@ -113,7 +113,7 @@ type genesisAccountMarshaling struct {
 type storageJSON common.Hash
 
 func (h *storageJSON) UnmarshalText(text []byte) error {
-	text = bytes.TrimPrefix(text, []byte("0x"))
+	text = bytes.TrimPrefix(text, []byte("gd"))
 	if len(text) > 64 {
 		return fmt.Errorf("too many hex characters in storage key/value %q", text)
 	}
@@ -341,7 +341,7 @@ func DefaultGenesisBlock() *Genesis {
 		Config:     params.MainnetChainConfig,
 		Nonce:      999,
 		Timestamp:  1620163034,
-		ExtraData:  hexutil.MustDecode("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		ExtraData:  hexutil.MustDecode("gd0000000000000000000000000000000000000000000000000000000000000000"),
 		GasLimit:   4700000,
 		Difficulty: big.NewInt(30000000),
 		Alloc:      decodePrealloc(mainnetAllocData),
@@ -354,7 +354,7 @@ func DefaultRopstenGenesisBlock() *Genesis {
 		Config:     params.RopstenChainConfig,
 		Nonce:      999,
 		Timestamp:  1620025986,
-		ExtraData:  hexutil.MustDecode("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		ExtraData:  hexutil.MustDecode("gd0000000000000000000000000000000000000000000000000000000000000000"),
 		GasLimit:   4700000,
 		Difficulty: big.NewInt(1),
 		Alloc:      decodePrealloc(ropstenAllocData),
@@ -366,7 +366,7 @@ func DefaultRinkebyGenesisBlock() *Genesis {
 	return &Genesis{
 		Config:     params.RinkebyChainConfig,
 		Timestamp:  1620025986,
-		ExtraData:  hexutil.MustDecode("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		ExtraData:  hexutil.MustDecode("gd0000000000000000000000000000000000000000000000000000000000000000"),
 		GasLimit:   4700000,
 		Difficulty: big.NewInt(1),
 		Alloc:      decodePrealloc(rinkebyAllocData),
@@ -378,7 +378,7 @@ func DefaultGoerliGenesisBlock() *Genesis {
 	return &Genesis{
 		Config:     params.GoerliChainConfig,
 		Timestamp:  1620025986,
-		ExtraData:  hexutil.MustDecode("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		ExtraData:  hexutil.MustDecode("gd0000000000000000000000000000000000000000000000000000000000000000"),
 		GasLimit:   4700000,
 		Difficulty: big.NewInt(1),
 		Alloc:      decodePrealloc(goerliAllocData),
@@ -390,7 +390,7 @@ func DefaultYoloV3GenesisBlock() *Genesis {
 	return &Genesis{
 		Config:     params.YoloV3ChainConfig,
 		Timestamp:  0x608fa282,
-		ExtraData:  hexutil.MustDecode("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		ExtraData:  hexutil.MustDecode("gd0000000000000000000000000000000000000000000000000000000000000000"),
 		GasLimit:   4700000,
 		Difficulty: big.NewInt(1),
 		Alloc:      decodePrealloc(yoloV3AllocData),

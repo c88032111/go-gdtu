@@ -36,50 +36,50 @@ type unmarshalTest struct {
 
 var (
 	encodeBytesTests = []marshalTest{
-		{[]byte{}, "0x"},
-		{[]byte{0}, "0x00"},
-		{[]byte{0, 0, 1, 2}, "0x00000102"},
+		{[]byte{}, "gd"},
+		{[]byte{0}, "gd00"},
+		{[]byte{0, 0, 1, 2}, "gd00000102"},
 	}
 
 	encodeBigTests = []marshalTest{
-		{referenceBig("0"), "0x0"},
-		{referenceBig("1"), "0x1"},
-		{referenceBig("ff"), "0xff"},
-		{referenceBig("112233445566778899aabbccddeeff"), "0x112233445566778899aabbccddeeff"},
-		{referenceBig("80a7f2c1bcc396c00"), "0x80a7f2c1bcc396c00"},
-		{referenceBig("-80a7f2c1bcc396c00"), "-0x80a7f2c1bcc396c00"},
+		{referenceBig("0"), "gd0"},
+		{referenceBig("1"), "gd1"},
+		{referenceBig("ff"), "gdff"},
+		{referenceBig("112233445566778899aabbccddeeff"), "gd112233445566778899aabbccddeeff"},
+		{referenceBig("80a7f2c1bcc396c00"), "gd80a7f2c1bcc396c00"},
+		{referenceBig("-80a7f2c1bcc396c00"), "-gd80a7f2c1bcc396c00"},
 	}
 
 	encodeUint64Tests = []marshalTest{
-		{uint64(0), "0x0"},
-		{uint64(1), "0x1"},
-		{uint64(0xff), "0xff"},
-		{uint64(0x1122334455667788), "0x1122334455667788"},
+		{uint64(0), "gd0"},
+		{uint64(1), "gd1"},
+		{uint64(0xff), "gdff"},
+		{uint64(0x1122334455667788), "gd1122334455667788"},
 	}
 
 	encodeUintTests = []marshalTest{
-		{uint(0), "0x0"},
-		{uint(1), "0x1"},
-		{uint(0xff), "0xff"},
-		{uint(0x11223344), "0x11223344"},
+		{uint(0), "gd0"},
+		{uint(1), "gd1"},
+		{uint(0xff), "gdff"},
+		{uint(0x11223344), "gd11223344"},
 	}
 
 	decodeBytesTests = []unmarshalTest{
 		// invalid
 		{input: ``, wantErr: ErrEmptyString},
 		{input: `0`, wantErr: ErrMissingPrefix},
-		{input: `0x0`, wantErr: ErrOddLength},
-		{input: `0x023`, wantErr: ErrOddLength},
-		{input: `0xxx`, wantErr: ErrSyntax},
-		{input: `0x01zz01`, wantErr: ErrSyntax},
+		{input: `gd0`, wantErr: ErrOddLength},
+		{input: `gd023`, wantErr: ErrOddLength},
+		{input: `gdxx`, wantErr: ErrSyntax},
+		{input: `gd01zz01`, wantErr: ErrSyntax},
 		// valid
-		{input: `0x`, want: []byte{}},
-		{input: `0X`, want: []byte{}},
-		{input: `0x02`, want: []byte{0x02}},
-		{input: `0X02`, want: []byte{0x02}},
-		{input: `0xffffffffff`, want: []byte{0xff, 0xff, 0xff, 0xff, 0xff}},
+		{input: `gd`, want: []byte{}},
+		{input: `GD`, want: []byte{}},
+		{input: `gd02`, want: []byte{0x02}},
+		{input: `GD02`, want: []byte{0x02}},
+		{input: `gdffffffffff`, want: []byte{0xff, 0xff, 0xff, 0xff, 0xff}},
 		{
-			input: `0xffffffffffffffffffffffffffffffffffff`,
+			input: `gdffffffffffffffffffffffffffffffffffff`,
 			want:  []byte{0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff},
 		},
 	}
@@ -87,32 +87,32 @@ var (
 	decodeBigTests = []unmarshalTest{
 		// invalid
 		{input: `0`, wantErr: ErrMissingPrefix},
-		{input: `0x`, wantErr: ErrEmptyNumber},
-		{input: `0x01`, wantErr: ErrLeadingZero},
-		{input: `0xx`, wantErr: ErrSyntax},
-		{input: `0x1zz01`, wantErr: ErrSyntax},
+		{input: `gd`, wantErr: ErrEmptyNumber},
+		{input: `gd01`, wantErr: ErrLeadingZero},
+		{input: `gdx`, wantErr: ErrSyntax},
+		{input: `gd1zz01`, wantErr: ErrSyntax},
 		{
-			input:   `0x10000000000000000000000000000000000000000000000000000000000000000`,
+			input:   `gd10000000000000000000000000000000000000000000000000000000000000000`,
 			wantErr: ErrBig256Range,
 		},
 		// valid
-		{input: `0x0`, want: big.NewInt(0)},
-		{input: `0x2`, want: big.NewInt(0x2)},
-		{input: `0x2F2`, want: big.NewInt(0x2f2)},
-		{input: `0X2F2`, want: big.NewInt(0x2f2)},
-		{input: `0x1122aaff`, want: big.NewInt(0x1122aaff)},
-		{input: `0xbBb`, want: big.NewInt(0xbbb)},
-		{input: `0xfffffffff`, want: big.NewInt(0xfffffffff)},
+		{input: `gd0`, want: big.NewInt(0)},
+		{input: `gd2`, want: big.NewInt(0x2)},
+		{input: `gd2F2`, want: big.NewInt(0x2f2)},
+		{input: `GD2F2`, want: big.NewInt(0x2f2)},
+		{input: `gd1122aaff`, want: big.NewInt(0x1122aaff)},
+		{input: `gdbBb`, want: big.NewInt(0xbbb)},
+		{input: `gdfffffffff`, want: big.NewInt(0xfffffffff)},
 		{
-			input: `0x112233445566778899aabbccddeeff`,
+			input: `gd112233445566778899aabbccddeeff`,
 			want:  referenceBig("112233445566778899aabbccddeeff"),
 		},
 		{
-			input: `0xffffffffffffffffffffffffffffffffffff`,
+			input: `gdffffffffffffffffffffffffffffffffffff`,
 			want:  referenceBig("ffffffffffffffffffffffffffffffffffff"),
 		},
 		{
-			input: `0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff`,
+			input: `gdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff`,
 			want:  referenceBig("ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"),
 		},
 	}
@@ -120,7 +120,7 @@ var (
 	decodeUint64Tests = []unmarshalTest{
 		// invalid
 		{input: `0`, wantErr: ErrMissingPrefix},
-		{input: `0x`, wantErr: ErrEmptyNumber},
+		{input: `gd`, wantErr: ErrEmptyNumber},
 		{input: `0x01`, wantErr: ErrLeadingZero},
 		{input: `0xfffffffffffffffff`, wantErr: ErrUint64Range},
 		{input: `0xx`, wantErr: ErrSyntax},

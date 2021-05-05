@@ -50,7 +50,7 @@ func runMinimalGgdtu(t *testing.T, args ...string) *testggdtu {
 // Tests that a node embedded within a console can be started up properly and
 // then terminated by closing the input stream.
 func TestConsoleWelcome(t *testing.T) {
-	coinbase := "0x8605cdbbdb6d264aa742e77020dcbc58fcdce182"
+	coinbase := "gd8605cdbbdb6d264aa742e77020dcbc58fcdce182"
 
 	// Start a ggdtu console, make sure it's cleaned up and terminate the console
 	ggdtu := runMinimalGgdtu(t, "--miner.gdtuerbase", coinbase, "console")
@@ -100,7 +100,7 @@ func TestAttachWelcome(t *testing.T) {
 	p := trulyRandInt(1024, 65533) // Yeah, sometimes this will fail, sorry :P
 	httpPort = strconv.Itoa(p)
 	wsPort = strconv.Itoa(p + 1)
-	ggdtu := runMinimalGgdtu(t, "--miner.gdtuerbase", "0x8605cdbbdb6d264aa742e77020dcbc58fcdce182",
+	ggdtu := runMinimalGgdtu(t, "--miner.gdtuerbase", "gd8605cdbbdb6d264aa742e77020dcbc58fcdce182",
 		"--ipcpath", ipc,
 		"--http", "--http.port", httpPort,
 		"--ws", "--ws.port", wsPort)

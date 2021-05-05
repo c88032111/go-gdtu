@@ -283,7 +283,7 @@ func defaultCodeRequestHandler(t *testPeer, id uint64, hashes []common.Hash, max
 func createStorageRequestResponse(t *testPeer, root common.Hash, accounts []common.Hash, bOrigin, bLimit []byte, max uint64) (hashes [][]common.Hash, slots [][][]byte, proofs [][]byte) {
 	var (
 		size  uint64
-		limit = common.HexToHash("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
+		limit = common.HexToHash("gdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
 	)
 	if len(bLimit) > 0 {
 		limit = common.BytesToHash(bLimit)

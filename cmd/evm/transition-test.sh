@@ -107,11 +107,11 @@ cat << EOF
 
 Mining rewards and ommer rewards might need to be added. This is how those are applied:
 
-- \`block_reward\` is the block mining reward for the miner (\`0xaa\`), of a block at height \`N\`.
-- For each ommer (mined by \`0xbb\`), with blocknumber \`N-delta\`
+- \`block_reward\` is the block mining reward for the miner (\`gdaa\`), of a block at height \`N\`.
+- For each ommer (mined by \`gdbb\`), with blocknumber \`N-delta\`
    - (where \`delta\` is the difference between the current block and the ommer)
-   - The account \`0xbb\` (ommer miner) is awarded \`(8-delta)/ 8 * block_reward\`
-   - The account \`0xaa\` (block miner) is awarded \`block_reward / 32\`
+   - The account \`gdbb\` (ommer miner) is awarded \`(8-delta)/ 8 * block_reward\`
+   - The account \`gdaa\` (block miner) is awarded \`block_reward / 32\`
 
 To make \`state_t8n\` apply these, the following inputs are required:
 
@@ -131,7 +131,7 @@ EOF
 
 showjson ./testdata/5/env.json
 
-echo "When applying this, using a reward of \`0x08\`"
+echo "When applying this, using a reward of \`gd08\`"
 cmd="./evm t8n --input.alloc=./testdata/5/alloc.json -input.txs=./testdata/5/txs.json --input.env=./testdata/5/env.json  --output.alloc=stdout --state.reward=0x80"
 output=`$cmd 2>/dev/null`
 echo "Output:"
@@ -155,10 +155,10 @@ echo "Example where blockhashes are provided: "
 cmd="./evm t8n --input.alloc=./testdata/3/alloc.json --input.txs=./testdata/3/txs.json --input.env=./testdata/3/env.json  --trace"
 tick && echo $cmd && tick
 $cmd 2>&1 >/dev/null
-cmd="cat trace-0-0x72fadbef39cd251a437eea619cfeda752271a5faaaa2147df012e112159ffb81.jsonl | grep BLOCKHASH -C2"
+cmd="cat trace-0-gd72fadbef39cd251a437eea619cfeda752271a5faaaa2147df012e112159ffb81.jsonl | grep BLOCKHASH -C2"
 tick && echo $cmd && tick
 echo "$ticks"
-cat trace-0-0x72fadbef39cd251a437eea619cfeda752271a5faaaa2147df012e112159ffb81.jsonl | grep BLOCKHASH -C2
+cat trace-0-gd72fadbef39cd251a437eea619cfeda752271a5faaaa2147df012e112159ffb81.jsonl | grep BLOCKHASH -C2
 echo "$ticks"
 echo ""
 

@@ -84,8 +84,8 @@ func (bi *BigInt) Sign() int {
 
 // SetString sets the big int to x.
 //
-// The string prefix determines the actual conversion base. A prefix of "0x" or
-// "0X" selects base 16; the "0" prefix selects base 8, and a "0b" or "0B" prefix
+// The string prefix determines the actual conversion base. A prefix of "gd" or
+// "GD" selects base 16; the "0" prefix selects base 8, and a "0b" or "0B" prefix
 // selects base 2. Otherwise the selected base is 10.
 func (bi *BigInt) SetString(x string, base int) {
 	bi.bigint.SetString(x, base)

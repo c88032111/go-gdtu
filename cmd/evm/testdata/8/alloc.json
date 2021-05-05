@@ -1,11 +1,11 @@
 {
-  "0x000000000000000000000000000000000000aaaa": {
-    "balance": "0x03",
-    "code": "0x5854505854",
-    "nonce": "0x1"
+  "gd000000000000000000000000000000000000aaaa": {
+    "balance": "gd03",
+    "code": "gd5854505854",
+    "nonce": "gd1"
   },
-  "0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b": {
-    "balance": "0x100000",
-    "nonce": "0x00"
+  "gda94f5374fce5edbc8e2a8697c15331677e6ebf0b": {
+    "balance": "gd100000",
+    "nonce": "gd00"
   }
 }

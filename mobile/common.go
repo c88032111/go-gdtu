@@ -68,7 +68,7 @@ func (h *Hash) GetBytes() []byte {
 // SetHex sets the specified hex string as the hash value.
 func (h *Hash) SetHex(hash string) error {
 	hash = strings.ToLower(hash)
-	if len(hash) >= 2 && hash[:2] == "0x" {
+	if len(hash) >= 2 && hash[:2] == "gd" {
 		hash = hash[2:]
 	}
 	if length := len(hash); length != 2*common.HashLength {
@@ -174,7 +174,7 @@ func (a *Address) GetBytes() []byte {
 // SetHex sets the specified hex string as the address value.
 func (a *Address) SetHex(address string) error {
 	address = strings.ToLower(address)
-	if len(address) >= 2 && address[:2] == "0x" {
+	if len(address) >= 2 && address[:2] == "gd" {
 		address = address[2:]
 	}
 	if length := len(address); length != 2*common.AddressLength {
@@ -240,12 +240,12 @@ func (a *Addresses) Append(address *Address) {
 	a.addresses = append(a.addresses, address.address)
 }
 
-// EncodeToHex encodes b as a hex string with 0x prefix.
+// EncodeToHex encodes b as a hex string with gd prefix.
 func EncodeToHex(b []byte) string {
 	return hexutil.Encode(b)
 }
 
-// DecodeFromHex decodes a hex string with 0x prefix.
+// DecodeFromHex decodes a hex string with gd prefix.
 func DecodeFromHex(s string) ([]byte, error) {
 	return hexutil.Decode(s)
 }

@@ -58,9 +58,9 @@ __asm__ __volatile__(
     "movq %%rax,%%r8\n"
     "movq %%rdx,%%r9\n"
     /* d += (c & M) * R */
-    "movq $0xfffffffffffff,%%rdx\n"
+    "movq $gdfffffffffffff,%%rdx\n"
     "andq %%rdx,%%rax\n"
-    "movq $0x1000003d10,%%rdx\n"
+    "movq $gd1000003d10,%%rdx\n"
     "mulq %%rdx\n"
     "addq %%rax,%%rcx\n"
     "adcq %%rdx,%%r15\n"
@@ -68,7 +68,7 @@ __asm__ __volatile__(
     "shrdq $52,%%r9,%%r8\n"
     /* t3 (tmp1) = d & M */
     "movq %%rcx,%%rsi\n"
-    "movq $0xfffffffffffff,%%rdx\n"
+    "movq $gdfffffffffffff,%%rdx\n"
     "andq %%rdx,%%rsi\n"
     "movq %%rsi,%q1\n"
     /* d >>= 52 */
@@ -101,13 +101,13 @@ __asm__ __volatile__(
     "adcq %%rdx,%%r15\n"
     /* d += c * R */
     "movq %%r8,%%rax\n"
-    "movq $0x1000003d10,%%rdx\n"
+    "movq $gd1000003d10,%%rdx\n"
     "mulq %%rdx\n"
     "addq %%rax,%%rcx\n"
     "adcq %%rdx,%%r15\n"
     /* t4 = d & M (%%rsi) */
     "movq %%rcx,%%rsi\n"
-    "movq $0xfffffffffffff,%%rdx\n"
+    "movq $gdfffffffffffff,%%rdx\n"
     "andq %%rdx,%%rsi\n"
     /* d >>= 52 */
     "shrdq $52,%%r15,%%rcx\n"

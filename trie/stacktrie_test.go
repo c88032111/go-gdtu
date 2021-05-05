@@ -108,8 +108,8 @@ func TestUpdateVariableKeys(t *testing.T) {
 		K string
 		V string
 	}{
-		{"0x33303534636532393561313031676174", "303030"},
-		{"0x3330353463653239356131303167617430", "313131"},
+		{"gd33303534636532393561313031676174", "303030"},
+		{"gd3330353463653239356131303167617430", "313131"},
 	}
 	for _, kv := range kvs {
 		nt.TryUpdate(common.FromHex(kv.K), common.FromHex(kv.V))

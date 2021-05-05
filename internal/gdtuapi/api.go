@@ -1906,7 +1906,7 @@ func (api *PublicDebugAPI) SeedHash(ctx context.Context, number uint64) (string,
 	if block == nil {
 		return "", fmt.Errorf("block #%d not found", number)
 	}
-	return fmt.Sprintf("0x%x", gdtuash.SeedHash(number)), nil
+	return fmt.Sprintf("gd%x", gdtuash.SeedHash(number)), nil
 }
 
 // PrivateDebugAPI is the collection of Gdtu APIs exposed over the private
@@ -1935,7 +1935,7 @@ func (api *PrivateDebugAPI) ChaindbProperty(property string) (string, error) {
 // removing all unused slots and merging all keys.
 func (api *PrivateDebugAPI) ChaindbCompact() error {
 	for b := byte(0); b < 255; b++ {
-		log.Info("Compacting chain database", "range", fmt.Sprintf("0x%0.2X-0x%0.2X", b, b+1))
+		log.Info("Compacting chain database", "range", fmt.Sprintf("gd%0.2X-gd%0.2X", b, b+1))
 		if err := api.b.ChainDb().Compact([]byte{b}, []byte{b + 1}); err != nil {
 			log.Error("Database compaction failed", "err", err)
 			return err

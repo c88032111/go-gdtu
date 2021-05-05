@@ -415,7 +415,7 @@ func toFilterArg(q gdtu.FilterQuery) (interface{}, error) {
 		}
 	} else {
 		if q.FromBlock == nil {
-			arg["fromBlock"] = "0x0"
+			arg["fromBlock"] = "gd0"
 		} else {
 			arg["fromBlock"] = toBlockNumArg(q.FromBlock)
 		}

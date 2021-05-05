@@ -81,31 +81,31 @@ func TestTransactionValidation(t *testing.T) {
 	testcases := []txtestcase{
 		// Invalid to checksum
 		{from: "000000000000000000000000000000000000dead", to: "000000000000000000000000000000000000dead",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", numMessages: 1},
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd01", numMessages: 1},
 		// valid 0x000000000000000000000000000000000000dEaD
-		{from: "000000000000000000000000000000000000dead", to: "0x000000000000000000000000000000000000dEaD",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", numMessages: 0},
+		{from: "000000000000000000000000000000000000dead", to: "gd000000000000000000000000000000000000dEaD",
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd01", numMessages: 0},
 		// conflicting input and data
-		{from: "000000000000000000000000000000000000dead", to: "0x000000000000000000000000000000000000dEaD",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", d: "0x01", i: "0x02", expectErr: true},
+		{from: "000000000000000000000000000000000000dead", to: "gd000000000000000000000000000000000000dEaD",
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd01", d: "gd01", i: "gd02", expectErr: true},
 		// Data can't be parsed
-		{from: "000000000000000000000000000000000000dead", to: "0x000000000000000000000000000000000000dEaD",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", d: "0x0102", numMessages: 1},
+		{from: "000000000000000000000000000000000000dead", to: "gd000000000000000000000000000000000000dEaD",
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd01", d: "gd0102", numMessages: 1},
 		// Data (on Input) can't be parsed
-		{from: "000000000000000000000000000000000000dead", to: "0x000000000000000000000000000000000000dEaD",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", i: "0x0102", numMessages: 1},
+		{from: "000000000000000000000000000000000000dead", to: "gd000000000000000000000000000000000000dEaD",
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd01", i: "gd0102", numMessages: 1},
 		// Send to 0
-		{from: "000000000000000000000000000000000000dead", to: "0x0000000000000000000000000000000000000000",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", numMessages: 1},
+		{from: "000000000000000000000000000000000000dead", to: "gd0000000000000000000000000000000000000000",
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd01", numMessages: 1},
 		// Create empty contract (no value)
 		{from: "000000000000000000000000000000000000dead", to: "",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x00", numMessages: 1},
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd00", numMessages: 1},
 		// Create empty contract (with value)
 		{from: "000000000000000000000000000000000000dead", to: "",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", expectErr: true},
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd01", expectErr: true},
 		// Small payload for create
 		{from: "000000000000000000000000000000000000dead", to: "",
-			n: "0x01", g: "0x20", gp: "0x40", value: "0x01", d: "0x01", numMessages: 1},
+			n: "gd01", g: "gd20", gp: "gd40", value: "gd01", d: "gd01", numMessages: 1},
 	}
 	for i, test := range testcases {
 		msgs, err := db.ValidateTransaction(nil, dummyTxArgs(test))

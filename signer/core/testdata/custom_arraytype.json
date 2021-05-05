@@ -44,7 +44,7 @@
     "name": "Gdtur Mail",
     "version": "1",
     "chainId": "1",
-    "verifyingContract": "0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
+    "verifyingContract": "gdCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
   },
   "message": {
     "from": { "name": "Cow"},

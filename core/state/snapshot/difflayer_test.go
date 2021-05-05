@@ -127,8 +127,8 @@ func TestMergeDelete(t *testing.T) {
 		storage = make(map[common.Hash]map[common.Hash][]byte)
 	)
 	// Fill up a parent
-	h1 := common.HexToHash("0x01")
-	h2 := common.HexToHash("0x02")
+	h1 := common.HexToHash("gd01")
+	h2 := common.HexToHash("gd02")
 
 	flipDrops := func() map[common.Hash]struct{} {
 		return map[common.Hash]struct{}{
@@ -198,8 +198,8 @@ func TestMergeDelete(t *testing.T) {
 func TestInsertAndMerge(t *testing.T) {
 	// Fill up a parent
 	var (
-		acc    = common.HexToHash("0x01")
-		slot   = common.HexToHash("0x02")
+		acc    = common.HexToHash("gd01")
+		slot   = common.HexToHash("gd02")
 		parent *diffLayer
 		child  *diffLayer
 	)

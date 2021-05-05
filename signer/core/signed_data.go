@@ -218,7 +218,7 @@ func (api *SignerAPI) determineSignatureFormat(ctx context.Context, contentType 
 			{
 				Name:  "Full message for signing",
 				Typ:   "hexdata",
-				Value: fmt.Sprintf("0x%x", msg),
+				Value: fmt.Sprintf("gd%x", msg),
 			},
 		}
 		req = &SignDataRequest{ContentType: mediaType, Rawdata: []byte(msg), Messages: messages, Hash: sighash}
@@ -252,7 +252,7 @@ func (api *SignerAPI) determineSignatureFormat(ctx context.Context, contentType 
 			{
 				Name:  "Clique header",
 				Typ:   "clique",
-				Value: fmt.Sprintf("clique header %d [0x%x]", header.Number, header.Hash()),
+				Value: fmt.Sprintf("clique header %d [gd%x]", header.Number, header.Hash()),
 			},
 		}
 		// Clique uses V on the form 0 or 1
@@ -827,7 +827,7 @@ func formatPrimitiveValue(encType string, encValue interface{}) (string, error) 
 		if b, err := parseInteger(encType, encValue); err != nil {
 			return "", err
 		} else {
-			return fmt.Sprintf("%d (0x%x)", b, b), nil
+			return fmt.Sprintf("%d (gd%x)", b, b), nil
 		}
 	}
 	return "", fmt.Errorf("unhandled type %v", encType)

@@ -32,31 +32,31 @@ var customGenesisTests = []struct {
 	{
 		genesis: `{
 			"alloc"      : {},
-			"coinbase"   : "0x0000000000000000000000000000000000000000",
-			"difficulty" : "0x20000",
+			"coinbase"   : "gd0000000000000000000000000000000000000000",
+			"difficulty" : "gd20000",
 			"extraData"  : "",
-			"gasLimit"   : "0x2fefd8",
-			"nonce"      : "0x0000000000001338",
-			"mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
-			"parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
-			"timestamp"  : "0x00",
+			"gasLimit"   : "gd2fefd8",
+			"nonce"      : "gd0000000000001338",
+			"mixhash"    : "gd0000000000000000000000000000000000000000000000000000000000000000",
+			"parentHash" : "gd0000000000000000000000000000000000000000000000000000000000000000",
+			"timestamp"  : "gd00",
 			"config"     : {}
 		}`,
 		query:  "gdtu.getBlock(0).nonce",
-		result: "0x0000000000001338",
+		result: "gd0000000000001338",
 	},
 	// Genesis file with specific chain configurations
 	{
 		genesis: `{
 			"alloc"      : {},
-			"coinbase"   : "0x0000000000000000000000000000000000000000",
-			"difficulty" : "0x20000",
+			"coinbase"   : "gd0000000000000000000000000000000000000000",
+			"difficulty" : "gd20000",
 			"extraData"  : "",
-			"gasLimit"   : "0x2fefd8",
-			"nonce"      : "0x0000000000001339",
-			"mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
-			"parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
-			"timestamp"  : "0x00",
+			"gasLimit"   : "gd2fefd8",
+			"nonce"      : "gd0000000000001339",
+			"mixhash"    : "gd0000000000000000000000000000000000000000000000000000000000000000",
+			"parentHash" : "gd0000000000000000000000000000000000000000000000000000000000000000",
+			"timestamp"  : "gd00",
 			"config"     : {
 				"homesteadBlock" : 42,
 				"daoForkBlock"   : 141,
@@ -64,7 +64,7 @@ var customGenesisTests = []struct {
 			}
 		}`,
 		query:  "gdtu.getBlock(0).nonce",
-		result: "0x0000000000001339",
+		result: "gd0000000000001339",
 	},
 }
 

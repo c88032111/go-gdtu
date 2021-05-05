@@ -33,18 +33,18 @@ func TestHexOrDecimal256(t *testing.T) {
 	}{
 		{"", big.NewInt(0), true},
 		{"0", big.NewInt(0), true},
-		{"0x0", big.NewInt(0), true},
+		{"gd0", big.NewInt(0), true},
 		{"12345678", big.NewInt(12345678), true},
-		{"0x12345678", big.NewInt(0x12345678), true},
-		{"0X12345678", big.NewInt(0x12345678), true},
+		{"gd12345678", big.NewInt(0x12345678), true},
+		{"GD12345678", big.NewInt(0x12345678), true},
 		// Tests for leading zero behaviour:
 		{"0123456789", big.NewInt(123456789), true}, // note: not octal
 		{"00", big.NewInt(0), true},
-		{"0x00", big.NewInt(0), true},
-		{"0x012345678abc", big.NewInt(0x12345678abc), true},
+		{"gd00", big.NewInt(0), true},
+		{"gd012345678abc", big.NewInt(0x12345678abc), true},
 		// Invalid syntax:
 		{"abcdef", nil, false},
-		{"0xgg", nil, false},
+		{"gdgg", nil, false},
 		// Larger than 256 bits:
 		{"115792089237316195423570985008687907853269984665640564039457584007913129639936", nil, false},
 	}
@@ -143,28 +143,28 @@ func BenchmarkPaddedBigBytesLargePadding(b *testing.B) {
 }
 
 func BenchmarkPaddedBigBytesSmallPadding(b *testing.B) {
-	bigint := MustParseBig256("0x18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
+	bigint := MustParseBig256("gd18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
 	for i := 0; i < b.N; i++ {
 		PaddedBigBytes(bigint, 5)
 	}
 }
 
 func BenchmarkPaddedBigBytesSmallOnePadding(b *testing.B) {
-	bigint := MustParseBig256("0x18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
+	bigint := MustParseBig256("gd18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
 	for i := 0; i < b.N; i++ {
 		PaddedBigBytes(bigint, 32)
 	}
 }
 
 func BenchmarkByteAtBrandNew(b *testing.B) {
-	bigint := MustParseBig256("0x18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
+	bigint := MustParseBig256("gd18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
 	for i := 0; i < b.N; i++ {
 		bigEndianByteAt(bigint, 15)
 	}
 }
 
 func BenchmarkByteAt(b *testing.B) {
-	bigint := MustParseBig256("0x18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
+	bigint := MustParseBig256("gd18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
 	for i := 0; i < b.N; i++ {
 		bigEndianByteAt(bigint, 15)
 	}
@@ -172,7 +172,7 @@ func BenchmarkByteAt(b *testing.B) {
 
 func BenchmarkByteAtOld(b *testing.B) {
 
-	bigint := MustParseBig256("0x18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
+	bigint := MustParseBig256("gd18F8F8F1000111000110011100222004330052300000000000000000FEFCF3CC")
 	for i := 0; i < b.N; i++ {
 		PaddedBigBytes(bigint, 32)
 	}

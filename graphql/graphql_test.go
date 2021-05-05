@@ -108,13 +108,13 @@ func TestGraphQLBlockSerialization(t *testing.T) {
 			code: 200,
 		},
 		{
-			body: `{"query": "{block(number:\"0xbad\"){number,gasUsed,gasLimit}}","variables": null}`,
-			want: `{"errors":[{"message":"strconv.ParseInt: parsing \"0xbad\": invalid syntax"}],"data":{}}`,
+			body: `{"query": "{block(number:\"gdbad\"){number,gasUsed,gasLimit}}","variables": null}`,
+			want: `{"errors":[{"message":"strconv.ParseInt: parsing \"gdbad\": invalid syntax"}],"data":{}}`,
 			code: 400,
 		},
 		{ // hex strings are currently not supported. If that's added to the spec, this test will need to change
-			body: `{"query": "{block(number:\"0x0\"){number,gasUsed,gasLimit}}","variables": null}`,
-			want: `{"errors":[{"message":"strconv.ParseInt: parsing \"0x0\": invalid syntax"}],"data":{}}`,
+			body: `{"query": "{block(number:\"gd0\"){number,gasUsed,gasLimit}}","variables": null}`,
+			want: `{"errors":[{"message":"strconv.ParseInt: parsing \"gd0\": invalid syntax"}],"data":{}}`,
 			code: 400,
 		},
 		{
@@ -135,8 +135,8 @@ func TestGraphQLBlockSerialization(t *testing.T) {
 		},
 		// should return `status` as decimal
 		{
-			body: `{"query": "{block {number call (data : {from : \"0xa94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"0x6295ee1b4f6dd65047762f924ecd367c17eabf8f\", data :\"0x12a7b914\"}){data status}}}"}`,
-			want: `{"data":{"block":{"number":10,"call":{"data":"0x","status":1}}}}`,
+			body: `{"query": "{block {number call (data : {from : \"gda94f5374fce5edbc8e2a8697c15331677e6ebf0b\", to: \"gd6295ee1b4f6dd65047762f924ecd367c17eabf8f\", data :\"gd12a7b914\"}){data status}}}"}`,
+			want: `{"data":{"block":{"number":10,"call":{"data":"gd","status":1}}}}`,
 			code: 200,
 		},
 	} {

@@ -698,7 +698,7 @@ func (s *Syncer) loadSyncStatus() {
 		last := common.BigToHash(new(big.Int).Add(next.Big(), step))
 		if i == accountConcurrency-1 {
 			// Make sure we don't overflow if the step is not a proper divisor
-			last = common.HexToHash("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
+			last = common.HexToHash("gdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
 		}
 		s.tasks = append(s.tasks, &accountTask{
 			Next:     next,
@@ -1739,7 +1739,7 @@ func (s *Syncer) processStorageResponse(res *storageResponse) {
 						last := common.BigToHash(new(big.Int).Add(next.Big(), step))
 						if k == storageConcurrency-1 {
 							// Make sure we don't overflow if the step is not a proper divisor
-							last = common.HexToHash("0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
+							last = common.HexToHash("gdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff")
 						}
 						tasks = append(tasks, &storageTask{
 							Next: next,

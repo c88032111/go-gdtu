@@ -32,9 +32,9 @@ import (
 
 func TestVector_ECDH(t *testing.T) {
 	var (
-		staticKey = hexPrivkey("0xfb757dc581730490a1d7a00deea65e9b1936924caaea8f44d476014856b68736")
-		publicKey = hexPubkey(crypto.S256(), "0x039961e4c2356d61bedb83052c115d311acb3a96f5777296dcf297351130266231")
-		want      = hexutil.MustDecode("0x033b11a2a1f214567e1537ce5e509ffd9b21373247f2a3ff6841f4976f53165e7e")
+		staticKey = hexPrivkey("gdfb757dc581730490a1d7a00deea65e9b1936924caaea8f44d476014856b68736")
+		publicKey = hexPubkey(crypto.S256(), "gd039961e4c2356d61bedb83052c115d311acb3a96f5777296dcf297351130266231")
+		want      = hexutil.MustDecode("gd033b11a2a1f214567e1537ce5e509ffd9b21373247f2a3ff6841f4976f53165e7e")
 	)
 	result := ecdh(staticKey, publicKey)
 	check(t, "shared-secret", result, want)
@@ -42,8 +42,8 @@ func TestVector_ECDH(t *testing.T) {
 
 func TestVector_KDF(t *testing.T) {
 	var (
-		ephKey = hexPrivkey("0xfb757dc581730490a1d7a00deea65e9b1936924caaea8f44d476014856b68736")
-		cdata  = hexutil.MustDecode("0x000000000000000000000000000000006469736376350001010102030405060708090a0b0c00180102030405060708090a0b0c0d0e0f100000000000000000")
+		ephKey = hexPrivkey("gdfb757dc581730490a1d7a00deea65e9b1936924caaea8f44d476014856b68736")
+		cdata  = hexutil.MustDecode("gd000000000000000000000000000000006469736376350001010102030405060708090a0b0c00180102030405060708090a0b0c0d0e0f100000000000000000")
 		net    = newHandshakeTest()
 	)
 	defer net.close()
@@ -55,16 +55,16 @@ func TestVector_KDF(t *testing.T) {
 	t.Logf("node-id-a = %#x", net.nodeA.id().Bytes())
 	t.Logf("node-id-b = %#x", net.nodeB.id().Bytes())
 	t.Logf("challenge-data = %#x", cdata)
-	check(t, "initiator-key", s.writeKey, hexutil.MustDecode("0xdccc82d81bd610f4f76d3ebe97a40571"))
-	check(t, "recipient-key", s.readKey, hexutil.MustDecode("0xac74bb8773749920b0d3a8881c173ec5"))
+	check(t, "initiator-key", s.writeKey, hexutil.MustDecode("gddccc82d81bd610f4f76d3ebe97a40571"))
+	check(t, "recipient-key", s.readKey, hexutil.MustDecode("gdac74bb8773749920b0d3a8881c173ec5"))
 }
 
 func TestVector_IDSignature(t *testing.T) {
 	var (
-		key    = hexPrivkey("0xfb757dc581730490a1d7a00deea65e9b1936924caaea8f44d476014856b68736")
-		destID = enode.HexID("0xbbbb9d047f0488c0b5a93c1c3f2d8bafc7c8ff337024a55434a0d0555de64db9")
-		ephkey = hexutil.MustDecode("0x039961e4c2356d61bedb83052c115d311acb3a96f5777296dcf297351130266231")
-		cdata  = hexutil.MustDecode("0x000000000000000000000000000000006469736376350001010102030405060708090a0b0c00180102030405060708090a0b0c0d0e0f100000000000000000")
+		key    = hexPrivkey("gdfb757dc581730490a1d7a00deea65e9b1936924caaea8f44d476014856b68736")
+		destID = enode.HexID("gdbbbb9d047f0488c0b5a93c1c3f2d8bafc7c8ff337024a55434a0d0555de64db9")
+		ephkey = hexutil.MustDecode("gd039961e4c2356d61bedb83052c115d311acb3a96f5777296dcf297351130266231")
+		cdata  = hexutil.MustDecode("gd000000000000000000000000000000006469736376350001010102030405060708090a0b0c00180102030405060708090a0b0c0d0e0f100000000000000000")
 	)
 
 	sig, err := makeIDSignature(sha256.New(), key, cdata, ephkey, destID)
@@ -75,7 +75,7 @@ func TestVector_IDSignature(t *testing.T) {
 	t.Logf("challenge-data = %#x", cdata)
 	t.Logf("ephemeral-pubkey = %#x", ephkey)
 	t.Logf("node-id-B = %#x", destID.Bytes())
-	expected := "0x94852a1e2318c4e5e9d422c98eaf19d1d90d876b29cd06ca7cb7546d0fff7b484fe86c09a064fe72bdbef73ba8e9c34df0cd2b53e9d65528c2c7f336d5dfc6e6"
+	expected := "gd94852a1e2318c4e5e9d422c98eaf19d1d90d876b29cd06ca7cb7546d0fff7b484fe86c09a064fe72bdbef73ba8e9c34df0cd2b53e9d65528c2c7f336d5dfc6e6"
 	check(t, "id-signature", sig, hexutil.MustDecode(expected))
 }
 
@@ -108,7 +108,7 @@ func check(t *testing.T, what string, x, y []byte) {
 }
 
 func hexPrivkey(input string) *ecdsa.PrivateKey {
-	key, err := crypto.HexToECDSA(strings.TrimPrefix(input, "0x"))
+	key, err := crypto.HexToECDSA(strings.TrimPrefix(input, "gd"))
 	if err != nil {
 		panic(err)
 	}

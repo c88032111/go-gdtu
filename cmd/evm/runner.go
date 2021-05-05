@@ -303,7 +303,7 @@ allocated bytes: %d
 `, initialGas-leftOverGas, stats.time, stats.allocs, stats.bytesAllocated)
 	}
 	if tracer == nil {
-		fmt.Printf("0x%x\n", output)
+		fmt.Printf("gd%x\n", output)
 		if err != nil {
 			fmt.Printf(" error: %v\n", err)
 		}

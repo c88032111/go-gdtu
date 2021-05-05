@@ -41,12 +41,12 @@ func TestLexer(t *testing.T) {
 			tokens: []token{{typ: lineStart}, {typ: eof}},
 		},
 		{
-			input:  "0x12345678",
-			tokens: []token{{typ: lineStart}, {typ: number, text: "0x12345678"}, {typ: eof}},
+			input:  "gd12345678",
+			tokens: []token{{typ: lineStart}, {typ: number, text: "gd12345678"}, {typ: eof}},
 		},
 		{
-			input:  "0x123ggg",
-			tokens: []token{{typ: lineStart}, {typ: number, text: "0x123"}, {typ: element, text: "ggg"}, {typ: eof}},
+			input:  "gd123ggg",
+			tokens: []token{{typ: lineStart}, {typ: number, text: "gd123"}, {typ: element, text: "ggg"}, {typ: eof}},
 		},
 		{
 			input:  "12345678",

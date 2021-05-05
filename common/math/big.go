@@ -62,13 +62,13 @@ func (i *HexOrDecimal256) UnmarshalText(input []byte) error {
 // MarshalText implements encoding.TextMarshaler.
 func (i *HexOrDecimal256) MarshalText() ([]byte, error) {
 	if i == nil {
-		return []byte("0x0"), nil
+		return []byte("gd0"), nil
 	}
 	return []byte(fmt.Sprintf("%#x", (*big.Int)(i))), nil
 }
 
 // Decimal256 unmarshals big.Int as a decimal string. When unmarshalling,
-// it however accepts either "0x"-prefixed (hex encoded) or non-prefixed (decimal)
+// it however accepts either "gd"-prefixed (hex encoded) or non-prefixed (decimal)
 type Decimal256 big.Int
 
 // NewHexOrDecimal256 creates a new Decimal256
@@ -109,7 +109,7 @@ func ParseBig256(s string) (*big.Int, bool) {
 	}
 	var bigint *big.Int
 	var ok bool
-	if len(s) >= 2 && (s[:2] == "0x" || s[:2] == "0X") {
+	if len(s) >= 2 && (s[:2] == "gd" || s[:2] == "GD") {
 		bigint, ok = new(big.Int).SetString(s[2:], 16)
 	} else {
 		bigint, ok = new(big.Int).SetString(s, 10)

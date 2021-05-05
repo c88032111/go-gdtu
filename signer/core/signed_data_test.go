@@ -134,17 +134,17 @@ var jsonTypedData = `
         "name": "Gdtur Mail",
         "version": "1",
         "chainId": "1",
-        "verifyingContract": "0xCCCcccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
+        "verifyingContract": "gdCCCcccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC"
       },
       "message": {
         "from": {
           "name": "Cow",
 		  "test": 3,
-          "wallet": "0xcD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826"
+          "wallet": "gdcD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826"
         },
         "to": {
           "name": "Bob",
-          "wallet": "0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB"
+          "wallet": "gdbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB"
         },
         "contents": "Hello, Bob!"
       }
@@ -157,18 +157,18 @@ var domainStandard = core.TypedDataDomain{
 	"Gdtur Mail",
 	"1",
 	math.NewHexOrDecimal256(1),
-	"0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
+	"gdCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",
 	"",
 }
 
 var messageStandard = map[string]interface{}{
 	"from": map[string]interface{}{
 		"name":   "Cow",
-		"wallet": "0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
+		"wallet": "gdCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826",
 	},
 	"to": map[string]interface{}{
 		"name":   "Bob",
-		"wallet": "0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB",
+		"wallet": "gdbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB",
 	},
 	"contents": "Hello, Bob!",
 }
@@ -277,8 +277,8 @@ func TestHashStruct(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	mainHash := fmt.Sprintf("0x%s", common.Bytes2Hex(hash))
-	if mainHash != "0xc52c0ee5d84264471806290a3f2c4cecfc5490626bf912d01f240d7a274b371e" {
+	mainHash := fmt.Sprintf("gd%s", common.Bytes2Hex(hash))
+	if mainHash != "gdc52c0ee5d84264471806290a3f2c4cecfc5490626bf912d01f240d7a274b371e" {
 		t.Errorf("Expected different hashStruct result (got %s)", mainHash)
 	}
 
@@ -286,8 +286,8 @@ func TestHashStruct(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	domainHash := fmt.Sprintf("0x%s", common.Bytes2Hex(hash))
-	if domainHash != "0xf2cee375fa42b42143804025fc449deafd50cc031ca257e0b194a650a912090f" {
+	domainHash := fmt.Sprintf("gd%s", common.Bytes2Hex(hash))
+	if domainHash != "gdf2cee375fa42b42143804025fc449deafd50cc031ca257e0b194a650a912090f" {
 		t.Errorf("Expected different domain hashStruct result (got %s)", domainHash)
 	}
 }
@@ -305,8 +305,8 @@ func TestEncodeType(t *testing.T) {
 }
 
 func TestTypeHash(t *testing.T) {
-	mailTypeHash := fmt.Sprintf("0x%s", common.Bytes2Hex(typedData.TypeHash(typedData.PrimaryType)))
-	if mailTypeHash != "0xa0cedeb2dc280ba39b857546d74f5549c3a1d7bdc2dd96bf881f76108e23dac2" {
+	mailTypeHash := fmt.Sprintf("gd%s", common.Bytes2Hex(typedData.TypeHash(typedData.PrimaryType)))
+	if mailTypeHash != "gda0cedeb2dc280ba39b857546d74f5549c3a1d7bdc2dd96bf881f76108e23dac2" {
 		t.Errorf("Expected different typeHash result (got %s)", mailTypeHash)
 	}
 }
@@ -316,8 +316,8 @@ func TestEncodeData(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	dataEncoding := fmt.Sprintf("0x%s", common.Bytes2Hex(hash))
-	if dataEncoding != "0xa0cedeb2dc280ba39b857546d74f5549c3a1d7bdc2dd96bf881f76108e23dac2fc71e5fa27ff56c350aa531bc129ebdf613b772b6604664f5d8dbe21b85eb0c8cd54f074a4af31b4411ff6a60c9719dbd559c221c8ac3492d9d872b041d703d1b5aadf3154a261abdd9086fc627b61efca26ae5702701d05cd2305f7c52a2fc8" {
+	dataEncoding := fmt.Sprintf("gd%s", common.Bytes2Hex(hash))
+	if dataEncoding != "gda0cedeb2dc280ba39b857546d74f5549c3a1d7bdc2dd96bf881f76108e23dac2fc71e5fa27ff56c350aa531bc129ebdf613b772b6604664f5d8dbe21b85eb0c8cd54f074a4af31b4411ff6a60c9719dbd559c221c8ac3492d9d872b041d703d1b5aadf3154a261abdd9086fc627b61efca26ae5702701d05cd2305f7c52a2fc8" {
 		t.Errorf("Expected different encodeData result (got %s)", dataEncoding)
 	}
 }
@@ -436,42 +436,42 @@ var gnosisTypedData = `
 		]
 	},
 	"domain": {
-		"verifyingContract": "0x25a6c4BBd32B2424A9c99aEB0584Ad12045382B3"
+		"verifyingContract": "gd25a6c4BBd32B2424A9c99aEB0584Ad12045382B3"
 	},
 	"primaryType": "SafeTx",
 	"message": {
-		"to": "0x9eE457023bB3De16D51A003a247BaEaD7fce313D",
+		"to": "gd9eE457023bB3De16D51A003a247BaEaD7fce313D",
 		"value": "20000000000000000",
-		"data": "0x",
+		"data": "gd",
 		"operation": 0,
 		"safeTxGas": 27845,
 		"baseGas": 0,
 		"gasPrice": "0",
-		"gasToken": "0x0000000000000000000000000000000000000000",
-		"refundReceiver": "0x0000000000000000000000000000000000000000",
+		"gasToken": "gd0000000000000000000000000000000000000000",
+		"refundReceiver": "gd0000000000000000000000000000000000000000",
 		"nonce": 3
 	}
 }`
 
 var gnosisTx = `
 {
-      "safe": "0x25a6c4BBd32B2424A9c99aEB0584Ad12045382B3",
-      "to": "0x9eE457023bB3De16D51A003a247BaEaD7fce313D",
+      "safe": "gd25a6c4BBd32B2424A9c99aEB0584Ad12045382B3",
+      "to": "gd9eE457023bB3De16D51A003a247BaEaD7fce313D",
       "value": "20000000000000000",
       "data": null,
       "operation": 0,
-      "gasToken": "0x0000000000000000000000000000000000000000",
+      "gasToken": "gd0000000000000000000000000000000000000000",
       "safeTxGas": 27845,
       "baseGas": 0,
       "gasPrice": "0",
-      "refundReceiver": "0x0000000000000000000000000000000000000000",
+      "refundReceiver": "gd0000000000000000000000000000000000000000",
       "nonce": 3,
       "executionDate": null,
       "submissionDate": "2020-09-15T21:59:23.815748Z",
       "modified": "2020-09-15T21:59:23.815748Z",
       "blockNumber": null,
       "transactionHash": null,
-      "safeTxHash": "0x28bae2bd58d894a1d9b69e5e9fde3570c4b98a6fc5499aefb54fb830137e831f",
+      "safeTxHash": "gd28bae2bd58d894a1d9b69e5e9fde3570c4b98a6fc5499aefb54fb830137e831f",
       "executor": null,
       "isExecuted": false,
       "isSuccessful": null,
@@ -483,11 +483,11 @@ var gnosisTx = `
       "confirmationsRequired": null,
       "confirmations": [
         {
-          "owner": "0xAd2e180019FCa9e55CADe76E4487F126Fd08DA34",
+          "owner": "gdAd2e180019FCa9e55CADe76E4487F126Fd08DA34",
           "submissionDate": "2020-09-15T21:59:28.281243Z",
           "transactionHash": null,
           "confirmationType": "CONFIRMATION",
-          "signature": "0x5e562065a0cb15d766dac0cd49eb6d196a41183af302c4ecad45f1a81958d7797753f04424a9b0aa1cb0448e4ec8e189540fbcdda7530ef9b9d95dfc2d36cb521b",
+          "signature": "gd5e562065a0cb15d766dac0cd49eb6d196a41183af302c4ecad45f1a81958d7797753f04424a9b0aa1cb0448e4ec8e189540fbcdda7530ef9b9d95dfc2d36cb521b",
           "signatureType": "EOA"
         }
       ],
@@ -507,7 +507,7 @@ func TestGnosisTypedData(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	expSigHash := common.FromHex("0x28bae2bd58d894a1d9b69e5e9fde3570c4b98a6fc5499aefb54fb830137e831f")
+	expSigHash := common.FromHex("gd28bae2bd58d894a1d9b69e5e9fde3570c4b98a6fc5499aefb54fb830137e831f")
 	if !bytes.Equal(expSigHash, sighash) {
 		t.Fatalf("Error, got %x, wanted %x", sighash, expSigHash)
 	}
@@ -526,7 +526,7 @@ func TestGnosisCustomData(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	expSigHash := common.FromHex("0x28bae2bd58d894a1d9b69e5e9fde3570c4b98a6fc5499aefb54fb830137e831f")
+	expSigHash := common.FromHex("gd28bae2bd58d894a1d9b69e5e9fde3570c4b98a6fc5499aefb54fb830137e831f")
 	if !bytes.Equal(expSigHash, sighash) {
 		t.Fatalf("Error, got %x, wanted %x", sighash, expSigHash)
 	}

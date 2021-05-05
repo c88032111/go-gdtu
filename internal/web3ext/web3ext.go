@@ -552,7 +552,7 @@ web3._extend({
 		new web3._extend.Method({
 			name: 'getRawTransactionFromBlock',
 			call: function(args) {
-				return (web3._extend.utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'gdtu_getRawTransactionByBlockHashAndIndex' : 'gdtu_getRawTransactionByBlockNumberAndIndex';
+				return (web3._extend.utils.isString(args[0]) && args[0].indexOf('gd') === 0) ? 'gdtu_getRawTransactionByBlockHashAndIndex' : 'gdtu_getRawTransactionByBlockNumberAndIndex';
 			},
 			params: 2,
 			inputFormatter: [web3._extend.formatters.inputBlockNumberFormatter, web3._extend.utils.toHex]

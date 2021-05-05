@@ -158,8 +158,8 @@ func TestSignTxRequest(t *testing.T) {
 		console.log("transaction.to", r.transaction.to);
 		console.log("transaction.value", r.transaction.value);
 		console.log("transaction.nonce", r.transaction.nonce);
-		if(r.transaction.from.toLowerCase()=="0x0000000000000000000000000000000000001337"){ return "Approve"}
-		if(r.transaction.from.toLowerCase()=="0x000000000000000000000000000000000000dead"){ return "Reject"}
+		if(r.transaction.from.toLowerCase()=="gd0000000000000000000000000000000000001337"){ return "Approve"}
+		if(r.transaction.from.toLowerCase()=="gd000000000000000000000000000000000000dead"){ return "Reject"}
 	}`
 
 	r, err := initRuleEngine(js)
@@ -320,7 +320,7 @@ func TestStorage(t *testing.T) {
 		a += storage.get("")				// Should result in ''
 
 		var b = new BigNumber(2)
-		var c = new BigNumber(16)//"0xf0",16)
+		var c = new BigNumber(16)//"gdf0",16)
 		var d = b.plus(c)
 		console.log(d)
 		return a
@@ -352,7 +352,7 @@ func TestStorage(t *testing.T) {
 
 const ExampleTxWindow = `
 	function big(str){
-		if(str.slice(0,2) == "0x"){ return new BigNumber(str.slice(2),16)}
+		if(str.slice(0,2) == "gd"){ return new BigNumber(str.slice(2),16)}
 		return new BigNumber(str)
 	}
 
@@ -584,7 +584,7 @@ func TestSignData(t *testing.T) {
     return "Approve"
 }
 function ApproveSignData(r){
-    if( r.address.toLowerCase() == "0x694267f14675d7e1b9494fd8d72fefe1755710fa")
+    if( r.address.toLowerCase() == "gd694267f14675d7e1b9494fd8d72fefe1755710fa")
     {
         if(r.messages[0].value.indexOf("bazonk") >= 0){
             return "Approve"
@@ -600,7 +600,7 @@ function ApproveSignData(r){
 	}
 	message := "baz bazonk foo"
 	hash, rawdata := accounts.TextAndHash([]byte(message))
-	addr, _ := mixAddr("0x694267f14675d7e1b9494fd8d72fefe1755710fa")
+	addr, _ := mixAddr("gd694267f14675d7e1b9494fd8d72fefe1755710fa")
 
 	t.Logf("address %v %v\n", addr.String(), addr.Original())
 

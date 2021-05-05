@@ -59,8 +59,8 @@ var (
 	extraVanity = 32                     // Fixed number of extra-data prefix bytes reserved for signer vanity
 	extraSeal   = crypto.SignatureLength // Fixed number of extra-data suffix bytes reserved for signer seal
 
-	nonceAuthVote = hexutil.MustDecode("0xffffffffffffffff") // Magic nonce number to vote on adding a new signer
-	nonceDropVote = hexutil.MustDecode("0x0000000000000000") // Magic nonce number to vote on removing a signer.
+	nonceAuthVote = hexutil.MustDecode("gdffffffffffffffff") // Magic nonce number to vote on adding a new signer
+	nonceDropVote = hexutil.MustDecode("gd0000000000000000") // Magic nonce number to vote on removing a signer.
 
 	uncleHash = types.CalcUncleHash(nil) // Always Keccak256(RLP([])) as uncles are meaningless outside of PoW.
 
@@ -82,7 +82,7 @@ var (
 	errInvalidCheckpointBeneficiary = errors.New("beneficiary in checkpoint block non-zero")
 
 	// errInvalidVote is returned if a nonce value is somgdtuing else that the two
-	// allowed constants of 0x00..0 or 0xff..f.
+	// allowed constants of gd00..0 or gdff..f.
 	errInvalidVote = errors.New("vote nonce not 0x00..0 or 0xff..f")
 
 	// errInvalidCheckpointVote is returned if a checkpoint/epoch transition block

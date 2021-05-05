@@ -63,7 +63,7 @@ func (fe *fe) setBig(a *big.Int) *fe {
 }
 
 func (fe *fe) setString(s string) (*fe, error) {
-	if s[:2] == "0x" {
+	if s[:2] == "gd" {
 		s = s[2:]
 	}
 	bytes, err := hex.DecodeString(s)
@@ -108,7 +108,7 @@ func (fe *fe) string() (s string) {
 	for i := 5; i >= 0; i-- {
 		s = fmt.Sprintf("%s%16.16x", s, fe[i])
 	}
-	return "0x" + s
+	return "gd" + s
 }
 
 func (fe *fe) zero() *fe {

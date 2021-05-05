@@ -103,7 +103,7 @@ func TestEIP2718BlockEncoding(t *testing.T) {
 	tx1, _ = tx1.WithSignature(HomesteadSigner{}, sig)
 
 	// Create ACL tx.
-	addr := common.HexToAddress("0x0000000000000000000000000000000000000001")
+	addr := common.HexToAddress("gd0000000000000000000000000000000000000001")
 	tx2 := NewTx(&AccessListTx{
 		ChainID:    big.NewInt(1),
 		Nonce:      0,

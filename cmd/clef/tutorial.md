@@ -93,7 +93,7 @@ Approve? [y/N]:
 Depending on whether we approve or deny the request, the original NetCat process will get:
 
 ```text
-{"jsonrpc":"2.0","id":1,"result":["0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3","0x086278a6c067775f71d6b2bb1856db6e28c30418"]}
+{"jsonrpc":"2.0","id":1,"result":["gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3","gd086278a6c067775f71d6b2bb1856db6e28c30418"]}
 
 or
 
@@ -153,7 +153,7 @@ Any account listing *request* will now be auto-approved by the rule file:
 
 ```text
 $ echo '{"id": 1, "jsonrpc": "2.0", "Method": "account_list"}' | nc -U ~/.clef/clef.ipc
-{"jsonrpc":"2.0","id":1,"result":["0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3","0x086278a6c067775f71d6b2bb1856db6e28c30418"]}
+{"jsonrpc":"2.0","id":1,"result":["gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3","gd086278a6c067775f71d6b2bb1856db6e28c30418"]}
 ```
 
 ## Under the hood
@@ -210,7 +210,7 @@ function ApproveListing() {
 }
 
 function ApproveSignData(req) {
-    if (req.address.toLowerCase() == "0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3") {
+    if (req.address.toLowerCase() == "gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3") {
         if (req.messages[0].value.indexOf("bazonk") >= 0) {
             return "Approve"
         }
@@ -222,7 +222,7 @@ function ApproveSignData(req) {
 
 In this example:
 
-- Any requests to sign data with the account `0xd9c9...` will be:
+- Any requests to sign data with the account `gdd9c9...` will be:
     - Auto-approved if the message contains `bazonk`,
     - Auto-rejected if the message does not contain `bazonk`,
 - Any other requests will be passed algdtu for manual confirmation.
@@ -265,10 +265,10 @@ INFO [07-01|14:12:41.638] IPC endpoint opened                      url=$HOME/.cl
 Then test signing, once with `bazonk` and once without:
 
 ```
-$ echo '{"id": 1, "jsonrpc":"2.0", "Method":"account_signData", "params":["data/plain", "0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3", "0x202062617a6f6e6b2062617a2067617a0a"]}' | nc -U ~/.clef/clef.ipc
-{"jsonrpc":"2.0","id":1,"result":"0x4f93e3457027f6be99b06b3392d0ebc60615ba448bb7544687ef1248dea4f5317f789002df783979c417d969836b6fda3710f5bffb296b4d51c8aaae6e2ac4831c"}
+$ echo '{"id": 1, "jsonrpc":"2.0", "Method":"account_signData", "params":["data/plain", "gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3", "gd202062617a6f6e6b2062617a2067617a0a"]}' | nc -U ~/.clef/clef.ipc
+{"jsonrpc":"2.0","id":1,"result":"gd4f93e3457027f6be99b06b3392d0ebc60615ba448bb7544687ef1248dea4f5317f789002df783979c417d969836b6fda3710f5bffb296b4d51c8aaae6e2ac4831c"}
 
-$ echo '{"id": 1, "jsonrpc":"2.0", "Method":"account_signData", "params":["data/plain", "0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3", "0x2020626f6e6b2062617a2067617a0a"]}' | nc -U ~/.clef/clef.ipc
+$ echo '{"id": 1, "jsonrpc":"2.0", "Method":"account_signData", "params":["data/plain", "gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3", "gd2020626f6e6b2062617a2067617a0a"]}' | nc -U ~/.clef/clef.ipc
 {"jsonrpc":"2.0","id":1,"error":{"code":-32000,"message":"Request denied"}}
 ```
 
@@ -282,9 +282,9 @@ The signer also stores all traffic over the external API in a log file. The last
 
 ```text
 $ tail -n 4 audit.log
-t=2019-07-01T15:52:14+0300 lvl=info msg=SignData   api=signer type=request  metadata="{\"remote\":\"NA\",\"local\":\"NA\",\"scheme\":\"NA\",\"User-Agent\":\"\",\"Origin\":\"\"}" addr="0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3 [chksum INVALID]" data=0x202062617a6f6e6b2062617a2067617a0a content-type=data/plain
+t=2019-07-01T15:52:14+0300 lvl=info msg=SignData   api=signer type=request  metadata="{\"remote\":\"NA\",\"local\":\"NA\",\"scheme\":\"NA\",\"User-Agent\":\"\",\"Origin\":\"\"}" addr="gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3 [chksum INVALID]" data=0x202062617a6f6e6b2062617a2067617a0a content-type=data/plain
 t=2019-07-01T15:52:14+0300 lvl=info msg=SignData   api=signer type=response data=4f93e3457027f6be99b06b3392d0ebc60615ba448bb7544687ef1248dea4f5317f789002df783979c417d969836b6fda3710f5bffb296b4d51c8aaae6e2ac4831c error=nil
-t=2019-07-01T15:52:23+0300 lvl=info msg=SignData   api=signer type=request  metadata="{\"remote\":\"NA\",\"local\":\"NA\",\"scheme\":\"NA\",\"User-Agent\":\"\",\"Origin\":\"\"}" addr="0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3 [chksum INVALID]" data=0x2020626f6e6b2062617a2067617a0a     content-type=data/plain
+t=2019-07-01T15:52:23+0300 lvl=info msg=SignData   api=signer type=request  metadata="{\"remote\":\"NA\",\"local\":\"NA\",\"scheme\":\"NA\",\"User-Agent\":\"\",\"Origin\":\"\"}" addr="gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3 [chksum INVALID]" data=0x2020626f6e6b2062617a2067617a0a     content-type=data/plain
 t=2019-07-01T15:52:23+0300 lvl=info msg=SignData   api=signer type=response data=                                     error="Request denied"
 ```
 
@@ -308,15 +308,15 @@ In a different window we can start Ggdtu, list our accounts, even list our walle
 $ ggdtu --rinkeby --signer=~/.clef/clef.ipc console
 
 > gdtu.accounts
-["0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3", "0x086278a6c067775f71d6b2bb1856db6e28c30418"]
+["gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3", "gd086278a6c067775f71d6b2bb1856db6e28c30418"]
 
 > personal.listWallets
 [{
     accounts: [{
-        address: "0xd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3",
+        address: "gdd9c9cd5f6779558b6e0ed4e6acf6b1947e7fa1f3",
         url: "extapi://$HOME/.clef/clef.ipc"
     }, {
-        address: "0x086278a6c067775f71d6b2bb1856db6e28c30418",
+        address: "gd086278a6c067775f71d6b2bb1856db6e28c30418",
         url: "extapi://$HOME/.clef/clef.ipc"
     }],
     status: "ok [version=6.0.0]",

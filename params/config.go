@@ -27,11 +27,11 @@ import (
 
 // Genesis hashes to enforce below configs on.
 var (
-	MainnetGenesisHash = common.HexToHash("0x24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
-	RopstenGenesisHash = common.HexToHash("0x24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
-	RinkebyGenesisHash = common.HexToHash("0x24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
-	GoerliGenesisHash  = common.HexToHash("0x24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
-	YoloV3GenesisHash  = common.HexToHash("0x24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
+	MainnetGenesisHash = common.HexToHash("gd24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
+	RopstenGenesisHash = common.HexToHash("gd24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
+	RinkebyGenesisHash = common.HexToHash("gd24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
+	GoerliGenesisHash  = common.HexToHash("gd24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
+	YoloV3GenesisHash  = common.HexToHash("gd24a0816414e5869f3d1248d4cdfc5c7313c8816dd0226b5c822f327de9a755b0")
 )
 
 // TrustedCheckpoints associates each known checkpoint with the genesis hash of
@@ -60,7 +60,7 @@ var (
 		DAOForkBlock:        big.NewInt(0),
 		DAOForkSupport:      true,
 		EIP150Block:         big.NewInt(0),
-		EIP150Hash:          common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		EIP150Hash:          common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
 		EIP155Block:         big.NewInt(0),
 		EIP158Block:         big.NewInt(0),
 		ByzantiumBlock:      big.NewInt(0),
@@ -75,16 +75,16 @@ var (
 	// MainnetTrustedCheckpoint contains the light client trusted checkpoint for the main network.
 	MainnetTrustedCheckpoint = &TrustedCheckpoint{
 		SectionIndex: 0,
-		SectionHead:  common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		CHTRoot:      common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		BloomRoot:    common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		SectionHead:  common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
+		CHTRoot:      common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
+		BloomRoot:    common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
 	}
 
 	// MainnetCheckpointOracle contains a set of configs for the main network oracle.
 	MainnetCheckpointOracle = &CheckpointOracleConfig{
-		Address: common.HexToAddress("0x0000000000000000000000000000000000000000"),
+		Address: common.HexToAddress("gd0000000000000000000000000000000000000000"),
 		Signers: []common.Address{
-			common.HexToAddress("0x0000000000000000000000000000000000000000"),
+			common.HexToAddress("gd0000000000000000000000000000000000000000"),
 		},
 		Threshold: 1,
 	}
@@ -96,7 +96,7 @@ var (
 		DAOForkBlock:        nil,
 		DAOForkSupport:      true,
 		EIP150Block:         big.NewInt(0),
-		EIP150Hash:          common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		EIP150Hash:          common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
 		EIP155Block:         big.NewInt(0),
 		EIP158Block:         big.NewInt(0),
 		ByzantiumBlock:      big.NewInt(0),
@@ -111,16 +111,16 @@ var (
 	// RopstenTrustedCheckpoint contains the light client trusted checkpoint for the Ropsten test network.
 	RopstenTrustedCheckpoint = &TrustedCheckpoint{
 		SectionIndex: 0,
-		SectionHead:  common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		CHTRoot:      common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		BloomRoot:    common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		SectionHead:  common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
+		CHTRoot:      common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
+		BloomRoot:    common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
 	}
 
 	// RopstenCheckpointOracle contains a set of configs for the Ropsten test network oracle.
 	RopstenCheckpointOracle = &CheckpointOracleConfig{
-		Address: common.HexToAddress("0x0000000000000000000000000000000000000000"),
+		Address: common.HexToAddress("gd0000000000000000000000000000000000000000"),
 		Signers: []common.Address{
-			common.HexToAddress("0x0000000000000000000000000000000000000000"),
+			common.HexToAddress("gd0000000000000000000000000000000000000000"),
 		},
 		Threshold: 1,
 	}
@@ -132,7 +132,7 @@ var (
 		DAOForkBlock:        nil,
 		DAOForkSupport:      true,
 		EIP150Block:         big.NewInt(0),
-		EIP150Hash:          common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		EIP150Hash:          common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
 		EIP155Block:         big.NewInt(0),
 		EIP158Block:         big.NewInt(0),
 		ByzantiumBlock:      big.NewInt(0),
@@ -150,16 +150,16 @@ var (
 	// RinkebyTrustedCheckpoint contains the light client trusted checkpoint for the Rinkeby test network.
 	RinkebyTrustedCheckpoint = &TrustedCheckpoint{
 		SectionIndex: 0,
-		SectionHead:  common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		CHTRoot:      common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		BloomRoot:    common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		SectionHead:  common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
+		CHTRoot:      common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
+		BloomRoot:    common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
 	}
 
 	// RinkebyCheckpointOracle contains a set of configs for the Rinkeby test network oracle.
 	RinkebyCheckpointOracle = &CheckpointOracleConfig{
-		Address: common.HexToAddress("0x0000000000000000000000000000000000000000"),
+		Address: common.HexToAddress("gd0000000000000000000000000000000000000000"),
 		Signers: []common.Address{
-			common.HexToAddress("0x0000000000000000000000000000000000000000"),
+			common.HexToAddress("gd0000000000000000000000000000000000000000"),
 		},
 		Threshold: 1,
 	}
@@ -188,16 +188,16 @@ var (
 	// GoerliTrustedCheckpoint contains the light client trusted checkpoint for the Görli test network.
 	GoerliTrustedCheckpoint = &TrustedCheckpoint{
 		SectionIndex: 0,
-		SectionHead:  common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		CHTRoot:      common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
-		BloomRoot:    common.HexToHash("0x0000000000000000000000000000000000000000000000000000000000000000"),
+		SectionHead:  common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
+		CHTRoot:      common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
+		BloomRoot:    common.HexToHash("gd0000000000000000000000000000000000000000000000000000000000000000"),
 	}
 
 	// GoerliCheckpointOracle contains a set of configs for the Goerli test network oracle.
 	GoerliCheckpointOracle = &CheckpointOracleConfig{
-		Address: common.HexToAddress("0x0000000000000000000000000000000000000000"),
+		Address: common.HexToAddress("gd0000000000000000000000000000000000000000"),
 		Signers: []common.Address{
-			common.HexToAddress("0x0000000000000000000000000000000000000000"),
+			common.HexToAddress("gd0000000000000000000000000000000000000000"),
 		},
 		Threshold: 1,
 	}

@@ -282,14 +282,14 @@ func (tx *stTransaction) toMessage(ps stPostState) (core.Message, error) {
 	gasLimit := tx.GasLimit[ps.Indexes.Gas]
 	// Value, Data hex encoding is messy: https://github.com/c88032111/tests/issues/203
 	value := new(big.Int)
-	if valueHex != "0x" {
+	if valueHex != "gd" {
 		v, ok := math.ParseBig256(valueHex)
 		if !ok {
 			return nil, fmt.Errorf("invalid tx value %q", valueHex)
 		}
 		value = v
 	}
-	data, err := hex.DecodeString(strings.TrimPrefix(dataHex, "0x"))
+	data, err := hex.DecodeString(strings.TrimPrefix(dataHex, "gd"))
 	if err != nil {
 		return nil, fmt.Errorf("invalid tx data %q", dataHex)
 	}

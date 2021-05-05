@@ -71,7 +71,7 @@ public class AndroidTest extends InstrumentationTestCase {
 			Account signer = ks.newAccount("Signer password");
 
 			Transaction tx = new Transaction(
-				1, new Address("0x0000000000000000000000000000000000000000"),
+				1, new Address("gd0000000000000000000000000000000000000000"),
 				new BigInt(0), 0, new BigInt(1), null); // Random empty transaction
 			BigInt chain = new BigInt(1); // Chain identifier of the main net
 

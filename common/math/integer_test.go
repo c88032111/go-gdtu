@@ -73,17 +73,17 @@ func TestHexOrDecimal64(t *testing.T) {
 	}{
 		{"", 0, true},
 		{"0", 0, true},
-		{"0x0", 0, true},
+		{"gd0", 0, true},
 		{"12345678", 12345678, true},
-		{"0x12345678", 0x12345678, true},
-		{"0X12345678", 0x12345678, true},
+		{"gd12345678", 0x12345678, true},
+		{"GD12345678", 0x12345678, true},
 		// Tests for leading zero behaviour:
 		{"0123456789", 123456789, true}, // note: not octal
-		{"0x00", 0, true},
-		{"0x012345678abc", 0x12345678abc, true},
+		{"gd00", 0, true},
+		{"gd012345678abc", 0x12345678abc, true},
 		// Invalid syntax:
 		{"abcdef", 0, false},
-		{"0xgg", 0, false},
+		{"gdgg", 0, false},
 		// Doesn't fit into 64 bits:
 		{"18446744073709551617", 0, false},
 	}

@@ -152,7 +152,7 @@ func parseRecord(source string) (*enr.Record, error) {
 }
 
 func decodeRecordHex(b []byte) ([]byte, bool) {
-	if bytes.HasPrefix(b, []byte("0x")) {
+	if bytes.HasPrefix(b, []byte("gd")) {
 		b = b[2:]
 	}
 	dec := make([]byte, hex.DecodedLen(len(b)))

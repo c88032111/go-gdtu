@@ -29,8 +29,8 @@ func TestNewID(t *testing.T) {
 	hexchars := "0123456789ABCDEFabcdef"
 	for i := 0; i < 100; i++ {
 		id := string(NewID())
-		if !strings.HasPrefix(id, "0x") {
-			t.Fatalf("invalid ID prefix, want '0x...', got %s", id)
+		if !strings.HasPrefix(id, "gd") {
+			t.Fatalf("invalid ID prefix, want 'gd...', got %s", id)
 		}
 
 		id = id[2:]

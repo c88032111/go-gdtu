@@ -256,7 +256,7 @@ func publish(ctx *cli.Context) error {
 	// Gather the signatures from the CLI
 	var sigs [][]byte
 	for _, sig := range strings.Split(ctx.String(signaturesFlag.Name), ",") {
-		trimmed := strings.TrimPrefix(strings.TrimSpace(sig), "0x")
+		trimmed := strings.TrimPrefix(strings.TrimSpace(sig), "gd")
 		if len(trimmed) != 130 {
 			utils.Fatalf("Invalid signature in --signature: '%s'", trimmed)
 		} else {

@@ -78,7 +78,7 @@ Repeat password: {{.InputLine "foobar"}}
 Your new key was generated
 `)
 	ggdtu.ExpectRegexp(`
-Public address of the key:   0x[0-9a-fA-F]{40}
+Public address of the key:   gd[0-9a-fA-F]{40}
 Path of the secret key file: .*UTC--.+--[0-9a-f]{40}
 
 - You can share your public address with anyone. Others need it to interact with you.
@@ -190,7 +190,7 @@ Password: {{.InputLine "foobar"}}
 
 	wantMessages := []string{
 		"Unlocked account",
-		"=0xf466859eAD1932D743d622CB74FC058882E8648A",
+		"=gdf466859eAD1932D743d622CB74FC058882E8648A",
 	}
 	for _, m := range wantMessages {
 		if !strings.Contains(ggdtu.StderrText(), m) {
@@ -232,8 +232,8 @@ Password: {{.InputLine "foobar"}}
 
 	wantMessages := []string{
 		"Unlocked account",
-		"=0x7EF5A6135f1FD6a02593eEdC869c6D41D934aef8",
-		"=0x289d485D9771714CCe91D3393D764E1311907ACc",
+		"=gd7EF5A6135f1FD6a02593eEdC869c6D41D934aef8",
+		"=gd289d485D9771714CCe91D3393D764E1311907ACc",
 	}
 	for _, m := range wantMessages {
 		if !strings.Contains(ggdtu.StderrText(), m) {
@@ -250,8 +250,8 @@ func TestUnlockFlagPasswordFile(t *testing.T) {
 
 	wantMessages := []string{
 		"Unlocked account",
-		"=0x7EF5A6135f1FD6a02593eEdC869c6D41D934aef8",
-		"=0x289d485D9771714CCe91D3393D764E1311907ACc",
+		"=gd7EF5A6135f1FD6a02593eEdC869c6D41D934aef8",
+		"=gd289d485D9771714CCe91D3393D764E1311907ACc",
 	}
 	for _, m := range wantMessages {
 		if !strings.Contains(ggdtu.StderrText(), m) {
@@ -299,7 +299,7 @@ In order to avoid this warning, you need to remove the following duplicate key f
 
 	wantMessages := []string{
 		"Unlocked account",
-		"=0xf466859eAD1932D743d622CB74FC058882E8648A",
+		"=gdf466859eAD1932D743d622CB74FC058882E8648A",
 	}
 	for _, m := range wantMessages {
 		if !strings.Contains(ggdtu.StderrText(), m) {

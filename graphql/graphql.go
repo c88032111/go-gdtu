@@ -51,7 +51,7 @@ func (b *Lgdtu) UnmarshalGraphQL(input interface{}) error {
 	switch input := input.(type) {
 	case string:
 		// uncomment to support hex values
-		//if strings.HasPrefix(input, "0x") {
+		//if strings.HasPrefix(input, "gd") {
 		//	// apply leniency and support hex representations of lgdtus.
 		//	value, err := hexutil.DecodeUint64(input)
 		//	*b = Lgdtu(value)

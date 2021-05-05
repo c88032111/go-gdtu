@@ -41,21 +41,21 @@ var (
 
 	checkpoint0 = params.TrustedCheckpoint{
 		SectionIndex: 0,
-		SectionHead:  common.HexToHash("0x7fa3c32f996c2bfb41a1a65b3d8ea3e0a33a1674cde43678ad6f4235e764d17d"),
-		CHTRoot:      common.HexToHash("0x98fc5d3de23a0fecebad236f6655533c157d26a1aedcd0852a514dc1169e6350"),
-		BloomRoot:    common.HexToHash("0x99b5adb52b337fe25e74c1c6d3835b896bd638611b3aebddb2317cce27a3f9fa"),
+		SectionHead:  common.HexToHash("gd7fa3c32f996c2bfb41a1a65b3d8ea3e0a33a1674cde43678ad6f4235e764d17d"),
+		CHTRoot:      common.HexToHash("gd98fc5d3de23a0fecebad236f6655533c157d26a1aedcd0852a514dc1169e6350"),
+		BloomRoot:    common.HexToHash("gd99b5adb52b337fe25e74c1c6d3835b896bd638611b3aebddb2317cce27a3f9fa"),
 	}
 	checkpoint1 = params.TrustedCheckpoint{
 		SectionIndex: 1,
-		SectionHead:  common.HexToHash("0x2d4dee68102125e59b0cc61b176bd89f0d12b3b91cfaf52ef8c2c82fb920c2d2"),
-		CHTRoot:      common.HexToHash("0x7d428008ece3b4c4ef5439f071930aad0bb75108d381308df73beadcd01ded95"),
-		BloomRoot:    common.HexToHash("0x652571f7736de17e7bbb427ac881474da684c6988a88bf51b10cca9a2ee148f4"),
+		SectionHead:  common.HexToHash("gd2d4dee68102125e59b0cc61b176bd89f0d12b3b91cfaf52ef8c2c82fb920c2d2"),
+		CHTRoot:      common.HexToHash("gd7d428008ece3b4c4ef5439f071930aad0bb75108d381308df73beadcd01ded95"),
+		BloomRoot:    common.HexToHash("gd652571f7736de17e7bbb427ac881474da684c6988a88bf51b10cca9a2ee148f4"),
 	}
 	checkpoint2 = params.TrustedCheckpoint{
 		SectionIndex: 2,
-		SectionHead:  common.HexToHash("0x61c0de578c0115b1dff8ef39aa600588c7c6ecb8a2f102003d7cf4c4146e9291"),
-		CHTRoot:      common.HexToHash("0x407a08a407a2bc3838b74ca3eb206903c9c8a186ccf5ef14af07794efff1970b"),
-		BloomRoot:    common.HexToHash("0x058b4161f558ce295a92925efc57f34f9210d5a30088d7475c183e0d3e58f5ac"),
+		SectionHead:  common.HexToHash("gd61c0de578c0115b1dff8ef39aa600588c7c6ecb8a2f102003d7cf4c4146e9291"),
+		CHTRoot:      common.HexToHash("gd407a08a407a2bc3838b74ca3eb206903c9c8a186ccf5ef14af07794efff1970b"),
+		BloomRoot:    common.HexToHash("gd058b4161f558ce295a92925efc57f34f9210d5a30088d7475c183e0d3e58f5ac"),
 	}
 )
 

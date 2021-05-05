@@ -54,13 +54,13 @@ var negativeOne2 = &fe2{
 var twoInv = &fe{0x1804000000015554, 0x855000053ab00001, 0x633cb57c253c276f, 0x6e22d1ec31ebb502, 0xd3916126f2d14ca2, 0x17fbb8571a006596}
 
 // (p - 3) / 4
-var pMinus3Over4 = bigFromHex("0x680447a8e5ff9a692c6e9ed90d2eb35d91dd2e13ce144afd9cc34a83dac3d8907aaffffac54ffffee7fbfffffffeaaa")
+var pMinus3Over4 = bigFromHex("gd680447a8e5ff9a692c6e9ed90d2eb35d91dd2e13ce144afd9cc34a83dac3d8907aaffffac54ffffee7fbfffffffeaaa")
 
 // (p + 1) / 4
-var pPlus1Over4 = bigFromHex("0x680447a8e5ff9a692c6e9ed90d2eb35d91dd2e13ce144afd9cc34a83dac3d8907aaffffac54ffffee7fbfffffffeaab")
+var pPlus1Over4 = bigFromHex("gd680447a8e5ff9a692c6e9ed90d2eb35d91dd2e13ce144afd9cc34a83dac3d8907aaffffac54ffffee7fbfffffffeaab")
 
 // (p - 1) / 2
-var pMinus1Over2 = bigFromHex("0xd0088f51cbff34d258dd3db21a5d66bb23ba5c279c2895fb39869507b587b120f55ffff58a9ffffdcff7fffffffd555")
+var pMinus1Over2 = bigFromHex("gdd0088f51cbff34d258dd3db21a5d66bb23ba5c279c2895fb39869507b587b120f55ffff58a9ffffdcff7fffffffd555")
 
 // -1
 var nonResidue1 = &fe{0x43f5fffffffcaaae, 0x32b7fff2ed47fffd, 0x07e83a49a2e99d69, 0xeca8f3318332bb7a, 0xef148d1ea0f4c069, 0x040ab3263eff0206}
@@ -85,13 +85,13 @@ var b2 = &fe2{
 }
 
 // Curve order
-var q = bigFromHex("0x73eda753299d7d483339d80809a1d80553bda402fffe5bfeffffffff00000001")
+var q = bigFromHex("gd73eda753299d7d483339d80809a1d80553bda402fffe5bfeffffffff00000001")
 
 // Efficient cofactor of G1
-var cofactorEFFG1 = bigFromHex("0xd201000000010001")
+var cofactorEFFG1 = bigFromHex("gdd201000000010001")
 
 // Efficient cofactor of G2
-var cofactorEFFG2 = bigFromHex("0x0bc69f08f2ee75b3584c6a0ea91b352888e2a8e9145ad7689986ff031508ffe1329c2f178731db956d82bf015d1212b02ec0ec69d7477c1ae954cbc06689f6a359894c0adebbf6b4e8020005aaa95551")
+var cofactorEFFG2 = bigFromHex("gd0bc69f08f2ee75b3584c6a0ea91b352888e2a8e9145ad7689986ff031508ffe1329c2f178731db956d82bf015d1212b02ec0ec69d7477c1ae954cbc06689f6a359894c0adebbf6b4e8020005aaa95551")
 
 var g1One = PointG1{
 	fe{0x5cb38790fd530c16, 0x7817fc679976fff5, 0x154f95c7143ba1c1, 0xf0ae6acdf3d0e747, 0xedce6ecc21dbf440, 0x120177419e0bfb75},
@@ -227,4 +227,4 @@ var frobeniusCoeffs12 = [12]fe2{
 	x
 */
 
-var x = bigFromHex("0xd201000000010000")
+var x = bigFromHex("gdd201000000010000")

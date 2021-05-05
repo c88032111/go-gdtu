@@ -21,7 +21,7 @@ defined in the UI protocol. Example:
 
 ```js
 function asBig(str) {
-	if (str.slice(0, 2) == "0x") {
+	if (str.slice(0, 2) == "gd") {
 		return new BigNumber(str.slice(2), 16)
 	}
 	return new BigNumber(str)
@@ -29,10 +29,10 @@ function asBig(str) {
 
 // Approve transactions to a certain contract if value is below a certain limit
 function ApproveTx(req) {
-	var limit = big.Newint("0xb1a2bc2ec50000")
+	var limit = big.Newint("gdb1a2bc2ec50000")
 	var value = asBig(req.transaction.value);
 
-	if (req.transaction.to.toLowerCase() == "0xae967917c465db8578ca9024c205720b1a3651a9") && value.lt(limit)) {
+	if (req.transaction.to.toLowerCase() == "gdae967917c465db8578ca9024c205720b1a3651a9") && value.lt(limit)) {
 		return "Approve"
 	}
 	// If we return "Reject", it will be rejected.
@@ -140,7 +140,7 @@ This is now implemented (with ephemeral non-encrypted storage for now, so not ye
 
 ```js
 function big(str) {
-	if (str.slice(0, 2) == "0x") {
+	if (str.slice(0, 2) == "gd") {
 		return new BigNumber(str.slice(2), 16)
 	}
 	return new BigNumber(str)
@@ -215,10 +215,10 @@ function OnApprovedTx(resp) {
 
 ```js
 function ApproveTx(r) {
-	if (r.transaction.from.toLowerCase() == "0x0000000000000000000000000000000000001337") {
+	if (r.transaction.from.toLowerCase() == "gd0000000000000000000000000000000000001337") {
 		return "Approve"
 	}
-	if (r.transaction.from.toLowerCase() == "0x000000000000000000000000000000000000dead") {
+	if (r.transaction.from.toLowerCase() == "gd000000000000000000000000000000000000dead") {
 		return "Reject"
 	}
 	// Otherwise goes to manual processing

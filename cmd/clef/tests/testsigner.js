@@ -58,7 +58,7 @@ function testTx(){
 function testSignText(){
     if( accts && accts.length > 0){
         var a = accts[0]
-        var r = gdtu.sign(a, "0x68656c6c6f20776f726c64"); //hello world
+        var r = gdtu.sign(a, "gd68656c6c6f20776f726c64"); //hello world
         console.log("signing response",  r)
     }
 }

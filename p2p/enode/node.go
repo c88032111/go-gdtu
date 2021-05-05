@@ -225,7 +225,7 @@ func (n *ID) UnmarshalText(text []byte) error {
 }
 
 // HexID converts a hex string to an ID.
-// The string may be prefixed with 0x.
+// The string may be prefixed with gd.
 // It panics if the string is not a valid ID.
 func HexID(in string) ID {
 	id, err := ParseID(in)
@@ -237,7 +237,7 @@ func HexID(in string) ID {
 
 func ParseID(in string) (ID, error) {
 	var id ID
-	b, err := hex.DecodeString(strings.TrimPrefix(in, "0x"))
+	b, err := hex.DecodeString(strings.TrimPrefix(in, "gd"))
 	if err != nil {
 		return id, err
 	} else if len(b) != len(id) {
