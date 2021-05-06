@@ -2202,12 +2202,13 @@ var toWei = function(number, unit) {
 var toBigNumber = function(number) {
     /*jshint maxcomplexity:5 */
     number = number || 0;
+
+    if (isString(number) && (number.indexOf('gd') === 0 || number.indexOf('-gd') === 0 || number.indexOf('0x') === 0 || number.indexOf('-0x') === 0)) {
+      return new BigNumber(number.replace('gd','').replace('0x',''), 16);
+    }
+
     if (isBigNumber(number))
         return number;
-
-    if (isString(number) && (number.indexOf('gd') === 0 || number.indexOf('-gd') === 0)) {
-        return new BigNumber(number.replace('gd',''), 16);
-    }
 
     return new BigNumber(number.toString(10), 10);
 };
