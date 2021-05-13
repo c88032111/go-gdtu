@@ -2,20 +2,20 @@
 # with Go source code. If you know what GOPATH is then you probably
 # don't need to bother with make.
 
-.PHONY: gone android ios gone-cross evm all test clean
-.PHONY: gone-linux gone-linux-386 gone-linux-amd64 gone-linux-mips64 gone-linux-mips64le
-.PHONY: gone-linux-arm gone-linux-arm-5 gone-linux-arm-6 gone-linux-arm-7 gone-linux-arm64
-.PHONY: gone-darwin gone-darwin-386 gone-darwin-amd64
-.PHONY: gone-windows gone-windows-386 gone-windows-amd64
+.PHONY: ggdtu android ios ggdtu-cross evm all test clean
+.PHONY: ggdtu-linux ggdtu-linux-386 ggdtu-linux-amd64 ggdtu-linux-mips64 ggdtu-linux-mips64le
+.PHONY: ggdtu-linux-arm ggdtu-linux-arm-5 ggdtu-linux-arm-6 ggdtu-linux-arm-7 ggdtu-linux-arm64
+.PHONY: ggdtu-darwin ggdtu-darwin-386 ggdtu-darwin-amd64
+.PHONY: ggdtu-windows ggdtu-windows-386 ggdtu-windows-amd64
 
 GOBIN = ./build/bin
 GO ?= latest
 GORUN = env GO111MODULE=on go run
 
-gone:
-	$(GORUN) build/ci.go install ./cmd/gone
+ggdtu:
+	$(GORUN) build/ci.go install ./cmd/ggdtu
 	@echo "Done building."
-	@echo "Run \"$(GOBIN)/gone\" to launch gone."
+	@echo "Run \"$(GOBIN)/ggdtu\" to launch ggdtu."
 
 all:
 	$(GORUN) build/ci.go install
@@ -23,8 +23,8 @@ all:
 android:
 	$(GORUN) build/ci.go aar --local
 	@echo "Done building."
-	@echo "Import \"$(GOBIN)/gone.aar\" to use the library."
-	@echo "Import \"$(GOBIN)/gone-sources.jar\" to add javadocs"
+	@echo "Import \"$(GOBIN)/ggdtu.aar\" to use the library."
+	@echo "Import \"$(GOBIN)/ggdtu-sources.jar\" to add javadocs"
 	@echo "For more info see https://stackoverflow.com/questions/20994336/android-studio-how-to-attach-javadoc"
 
 ios:
@@ -57,92 +57,92 @@ devtools:
 
 # Cross Compilation Targets (xgo)
 
-gone-cross: gone-linux gone-darwin gone-windows gone-android gone-ios
+ggdtu-cross: ggdtu-linux ggdtu-darwin ggdtu-windows ggdtu-android ggdtu-ios
 	@echo "Full cross compilation done:"
-	@ls -ld $(GOBIN)/gone-*
+	@ls -ld $(GOBIN)/ggdtu-*
 
-gone-linux: gone-linux-386 gone-linux-amd64 gone-linux-arm gone-linux-mips64 gone-linux-mips64le
+ggdtu-linux: ggdtu-linux-386 ggdtu-linux-amd64 ggdtu-linux-arm ggdtu-linux-mips64 ggdtu-linux-mips64le
 	@echo "Linux cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-*
+	@ls -ld $(GOBIN)/ggdtu-linux-*
 
-gone-linux-386:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/386 -v ./cmd/gone
+ggdtu-linux-386:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/386 -v ./cmd/ggdtu
 	@echo "Linux 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep 386
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep 386
 
-gone-linux-amd64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 -v ./cmd/gone
+ggdtu-linux-amd64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/amd64 -v ./cmd/ggdtu
 	@echo "Linux amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep amd64
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep amd64
 
-gone-linux-arm: gone-linux-arm-5 gone-linux-arm-6 gone-linux-arm-7 gone-linux-arm64
+ggdtu-linux-arm: ggdtu-linux-arm-5 ggdtu-linux-arm-6 ggdtu-linux-arm-7 ggdtu-linux-arm64
 	@echo "Linux ARM cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep arm
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep arm
 
-gone-linux-arm-5:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-5 -v ./cmd/gone
+ggdtu-linux-arm-5:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-5 -v ./cmd/ggdtu
 	@echo "Linux ARMv5 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep arm-5
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep arm-5
 
-gone-linux-arm-6:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-6 -v ./cmd/gone
+ggdtu-linux-arm-6:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-6 -v ./cmd/ggdtu
 	@echo "Linux ARMv6 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep arm-6
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep arm-6
 
-gone-linux-arm-7:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-7 -v ./cmd/gone
+ggdtu-linux-arm-7:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm-7 -v ./cmd/ggdtu
 	@echo "Linux ARMv7 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep arm-7
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep arm-7
 
-gone-linux-arm64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm64 -v ./cmd/gone
+ggdtu-linux-arm64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/arm64 -v ./cmd/ggdtu
 	@echo "Linux ARM64 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep arm64
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep arm64
 
-gone-linux-mips:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips --ldflags '-extldflags "-static"' -v ./cmd/gone
+ggdtu-linux-mips:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips --ldflags '-extldflags "-static"' -v ./cmd/ggdtu
 	@echo "Linux MIPS cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep mips
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep mips
 
-gone-linux-mipsle:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mipsle --ldflags '-extldflags "-static"' -v ./cmd/gone
+ggdtu-linux-mipsle:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mipsle --ldflags '-extldflags "-static"' -v ./cmd/ggdtu
 	@echo "Linux MIPSle cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep mipsle
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep mipsle
 
-gone-linux-mips64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips64 --ldflags '-extldflags "-static"' -v ./cmd/gone
+ggdtu-linux-mips64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips64 --ldflags '-extldflags "-static"' -v ./cmd/ggdtu
 	@echo "Linux MIPS64 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep mips64
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep mips64
 
-gone-linux-mips64le:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips64le --ldflags '-extldflags "-static"' -v ./cmd/gone
+ggdtu-linux-mips64le:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=linux/mips64le --ldflags '-extldflags "-static"' -v ./cmd/ggdtu
 	@echo "Linux MIPS64le cross compilation done:"
-	@ls -ld $(GOBIN)/gone-linux-* | grep mips64le
+	@ls -ld $(GOBIN)/ggdtu-linux-* | grep mips64le
 
-gone-darwin: gone-darwin-386 gone-darwin-amd64
+ggdtu-darwin: ggdtu-darwin-386 ggdtu-darwin-amd64
 	@echo "Darwin cross compilation done:"
-	@ls -ld $(GOBIN)/gone-darwin-*
+	@ls -ld $(GOBIN)/ggdtu-darwin-*
 
-gone-darwin-386:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=darwin/386 -v ./cmd/gone
+ggdtu-darwin-386:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=darwin/386 -v ./cmd/ggdtu
 	@echo "Darwin 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-darwin-* | grep 386
+	@ls -ld $(GOBIN)/ggdtu-darwin-* | grep 386
 
-gone-darwin-amd64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 -v ./cmd/gone
+ggdtu-darwin-amd64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=darwin/amd64 -v ./cmd/ggdtu
 	@echo "Darwin amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-darwin-* | grep amd64
+	@ls -ld $(GOBIN)/ggdtu-darwin-* | grep amd64
 
-gone-windows: gone-windows-386 gone-windows-amd64
+ggdtu-windows: ggdtu-windows-386 ggdtu-windows-amd64
 	@echo "Windows cross compilation done:"
-	@ls -ld $(GOBIN)/gone-windows-*
+	@ls -ld $(GOBIN)/ggdtu-windows-*
 
-gone-windows-386:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/386 -v ./cmd/gone
+ggdtu-windows-386:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/386 -v ./cmd/ggdtu
 	@echo "Windows 386 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-windows-* | grep 386
+	@ls -ld $(GOBIN)/ggdtu-windows-* | grep 386
 
-gone-windows-amd64:
-	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/gone
+ggdtu-windows-amd64:
+	$(GORUN) build/ci.go xgo -- --go=$(GO) --targets=windows/amd64 -v ./cmd/ggdtu
 	@echo "Windows amd64 cross compilation done:"
-	@ls -ld $(GOBIN)/gone-windows-* | grep amd64
+	@ls -ld $(GOBIN)/ggdtu-windows-* | grep amd64
