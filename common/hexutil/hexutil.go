@@ -182,7 +182,7 @@ func EncodeBig(bigint *big.Int) string {
 	if nbits == 0 {
 		return "gd0"
 	}
-	return fmt.Sprintf("%#x", bigint)
+	return fmt.Sprintf("gd%x", bigint)
 }
 
 func hasGxPrefix(input string) bool {

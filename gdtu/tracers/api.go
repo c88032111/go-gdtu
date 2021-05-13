@@ -429,7 +429,7 @@ func (api *API) TraceBadBlock(ctx context.Context, hash common.Hash, config *Tra
 			return api.traceBlock(ctx, block, config)
 		}
 	}
-	return nil, fmt.Errorf("bad block %#x not found", hash)
+	return nil, fmt.Errorf("bad block gd%x not found", hash)
 }
 
 // StandardTraceBlockToFile dumps the structured logs created during the
@@ -452,7 +452,7 @@ func (api *API) StandardTraceBadBlockToFile(ctx context.Context, hash common.Has
 			return api.standardTraceBlockToFile(ctx, block, config)
 		}
 	}
-	return nil, fmt.Errorf("bad block %#x not found", hash)
+	return nil, fmt.Errorf("bad block gd%x not found", hash)
 }
 
 // traceBlock configures a new tracer according to the provided configuration, and
@@ -547,7 +547,7 @@ func (api *API) standardTraceBlockToFile(ctx context.Context, block *types.Block
 	// If we're tracing a single transaction, make sure it's present
 	if config != nil && config.TxHash != (common.Hash{}) {
 		if !containsTx(block, config.TxHash) {
-			return nil, fmt.Errorf("transaction %#x not found in block", config.TxHash)
+			return nil, fmt.Errorf("transaction gd%x not found in block", config.TxHash)
 		}
 	}
 	if block.NumberU64() == 0 {
@@ -616,7 +616,7 @@ func (api *API) standardTraceBlockToFile(ctx context.Context, block *types.Block
 		// If the transaction needs tracing, swap out the configs
 		if tx.Hash() == txHash || txHash == (common.Hash{}) {
 			// Generate a unique temporary file to dump it into
-			prefix := fmt.Sprintf("block_%#x-%d-%#x-", block.Hash().Bytes()[:4], i, tx.Hash().Bytes()[:4])
+			prefix := fmt.Sprintf("block_gd%x-%d-gd%x-", block.Hash().Bytes()[:4], i, tx.Hash().Bytes()[:4])
 			if !canon {
 				prefix = fmt.Sprintf("%valt-", prefix)
 			}

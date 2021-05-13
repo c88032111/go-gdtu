@@ -397,29 +397,29 @@ func TestTestVectorsV5(t *testing.T) {
 func testVectorComment(net *handshakeTest, p Packet, challenge *Whoareyou, nonce Nonce) string {
 	o := new(strings.Builder)
 	printWhoareyou := func(p *Whoareyou) {
-		fmt.Fprintf(o, "whoareyou.challenge-data = %#x\n", p.ChallengeData)
-		fmt.Fprintf(o, "whoareyou.request-nonce = %#x\n", p.Nonce[:])
-		fmt.Fprintf(o, "whoareyou.id-nonce = %#x\n", p.IDNonce[:])
+		fmt.Fprintf(o, "whoareyou.challenge-data = gd%x\n", p.ChallengeData)
+		fmt.Fprintf(o, "whoareyou.request-nonce = gd%x\n", p.Nonce[:])
+		fmt.Fprintf(o, "whoareyou.id-nonce = gd%x\n", p.IDNonce[:])
 		fmt.Fprintf(o, "whoareyou.enr-seq = %d\n", p.RecordSeq)
 	}
 
-	fmt.Fprintf(o, "src-node-id = %#x\n", net.nodeA.id().Bytes())
-	fmt.Fprintf(o, "dest-node-id = %#x\n", net.nodeB.id().Bytes())
+	fmt.Fprintf(o, "src-node-id = gd%x\n", net.nodeA.id().Bytes())
+	fmt.Fprintf(o, "dest-node-id = gd%x\n", net.nodeB.id().Bytes())
 	switch p := p.(type) {
 	case *Whoareyou:
 		// WHOAREYOU packet.
 		printWhoareyou(p)
 	case *Ping:
-		fmt.Fprintf(o, "nonce = %#x\n", nonce[:])
-		fmt.Fprintf(o, "read-key = %#x\n", net.nodeA.c.sc.session(net.nodeB.id(), net.nodeB.addr()).writeKey)
-		fmt.Fprintf(o, "ping.req-id = %#x\n", p.ReqID)
+		fmt.Fprintf(o, "nonce = gd%x\n", nonce[:])
+		fmt.Fprintf(o, "read-key = gd%x\n", net.nodeA.c.sc.session(net.nodeB.id(), net.nodeB.addr()).writeKey)
+		fmt.Fprintf(o, "ping.req-id = gd%x\n", p.ReqID)
 		fmt.Fprintf(o, "ping.enr-seq = %d\n", p.ENRSeq)
 		if challenge != nil {
 			// Handshake message packet.
 			fmt.Fprint(o, "\nhandshake inputs:\n\n")
 			printWhoareyou(challenge)
-			fmt.Fprintf(o, "ephemeral-key = %#x\n", testEphKey.D.Bytes())
-			fmt.Fprintf(o, "ephemeral-pubkey = %#x\n", crypto.CompressPubkey(&testEphKey.PublicKey))
+			fmt.Fprintf(o, "ephemeral-key = gd%x\n", testEphKey.D.Bytes())
+			fmt.Fprintf(o, "ephemeral-pubkey = gd%x\n", crypto.CompressPubkey(&testEphKey.PublicKey))
 		}
 	default:
 		panic(fmt.Errorf("unhandled packet type %T", p))

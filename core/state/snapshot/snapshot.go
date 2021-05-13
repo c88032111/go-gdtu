@@ -285,7 +285,7 @@ func (t *Tree) Update(blockRoot common.Hash, parentRoot common.Hash, destructs m
 	// Generate a new snapshot on top of the parent
 	parent := t.Snapshot(parentRoot).(snapshot)
 	if parent == nil {
-		return fmt.Errorf("parent [%#x] snapshot missing", parentRoot)
+		return fmt.Errorf("parent [gd%x] snapshot missing", parentRoot)
 	}
 	snap := parent.Update(blockRoot, destructs, accounts, storage)
 
@@ -310,11 +310,11 @@ func (t *Tree) Cap(root common.Hash, layers int) error {
 	// Retrieve the head snapshot to cap from
 	snap := t.Snapshot(root)
 	if snap == nil {
-		return fmt.Errorf("snapshot [%#x] missing", root)
+		return fmt.Errorf("snapshot [gd%x] missing", root)
 	}
 	diff, ok := snap.(*diffLayer)
 	if !ok {
-		return fmt.Errorf("snapshot [%#x] is disk layer", root)
+		return fmt.Errorf("snapshot [gd%x] is disk layer", root)
 	}
 	// If the generator is still running, use a more aggressive cap
 	diff.origin.lock.RLock()
@@ -573,7 +573,7 @@ func (t *Tree) Journal(root common.Hash) (common.Hash, error) {
 	// Retrieve the head snapshot to journal from var snap snapshot
 	snap := t.Snapshot(root)
 	if snap == nil {
-		return common.Hash{}, fmt.Errorf("snapshot [%#x] missing", root)
+		return common.Hash{}, fmt.Errorf("snapshot [gd%x] missing", root)
 	}
 	// Run the journaling
 	t.lock.Lock()
@@ -610,7 +610,7 @@ func (t *Tree) LegacyJournal(root common.Hash) (common.Hash, error) {
 	// Retrieve the head snapshot to journal from var snap snapshot
 	snap := t.Snapshot(root)
 	if snap == nil {
-		return common.Hash{}, fmt.Errorf("snapshot [%#x] missing", root)
+		return common.Hash{}, fmt.Errorf("snapshot [gd%x] missing", root)
 	}
 	// Run the journaling
 	t.lock.Lock()

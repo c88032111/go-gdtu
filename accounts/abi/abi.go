@@ -232,7 +232,7 @@ func (abi *ABI) MethodById(sigdata []byte) (*Method, error) {
 			return &Method, nil
 		}
 	}
-	return nil, fmt.Errorf("no Method with id: %#x", sigdata[:4])
+	return nil, fmt.Errorf("no Method with id: gd%x", sigdata[:4])
 }
 
 // EventByID looks an event up by its topic hash in the
@@ -243,7 +243,7 @@ func (abi *ABI) EventByID(topic common.Hash) (*Event, error) {
 			return &event, nil
 		}
 	}
-	return nil, fmt.Errorf("no event with id: %#x", topic.Hex())
+	return nil, fmt.Errorf("no event with id: gd%x", topic.Hex())
 }
 
 // HasFallback returns an indicator whether a fallback function is included.

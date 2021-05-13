@@ -64,7 +64,7 @@ func (i *HexOrDecimal256) MarshalText() ([]byte, error) {
 	if i == nil {
 		return []byte("gd0"), nil
 	}
-	return []byte(fmt.Sprintf("%#x", (*big.Int)(i))), nil
+	return []byte(fmt.Sprintf("gd%x", (*big.Int)(i))), nil
 }
 
 // Decimal256 unmarshals big.Int as a decimal string. When unmarshalling,

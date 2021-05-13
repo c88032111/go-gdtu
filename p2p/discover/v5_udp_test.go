@@ -593,7 +593,7 @@ func TestUDPv5_LocalNode(t *testing.T) {
 		t.Errorf("Could not load value from record: %v", err)
 	}
 	if testVal != outputVal {
-		t.Errorf("Wanted %#x to be retrieved from the record but instead got %#x", testVal, outputVal)
+		t.Errorf("Wanted gd%x to be retrieved from the record but instead got gd%x", testVal, outputVal)
 	}
 }
 

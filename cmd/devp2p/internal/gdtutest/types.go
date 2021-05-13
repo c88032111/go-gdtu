@@ -274,7 +274,7 @@ loop:
 		switch msg := c.Read().(type) {
 		case *Status:
 			if have, want := msg.Head, chain.blocks[chain.Len()-1].Hash(); have != want {
-				t.Fatalf("wrgdtu head block in status, want:  %#x (block %d) have %#x",
+				t.Fatalf("wrgdtu head block in status, want:  gd%x (block %d) have gd%x",
 					want, chain.blocks[chain.Len()-1].NumberU64(), have)
 			}
 			if have, want := msg.TD.Cmp(chain.TD(chain.Len())), 0; have != want {

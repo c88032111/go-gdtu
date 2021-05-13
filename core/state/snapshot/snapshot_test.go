@@ -117,10 +117,10 @@ func TestDiskLayerExternalInvalidationFullFlatten(t *testing.T) {
 	}
 	// Since the base layer was modified, ensure that data retrieval on the external reference fail
 	if acc, err := ref.Account(common.HexToHash("gd01")); err != ErrSnapshotStale {
-		t.Errorf("stale reference returned account: %#x (err: %v)", acc, err)
+		t.Errorf("stale reference returned account: gd%x (err: %v)", acc, err)
 	}
 	if slot, err := ref.Storage(common.HexToHash("gda1"), common.HexToHash("gdb1")); err != ErrSnapshotStale {
-		t.Errorf("stale reference returned storage slot: %#x (err: %v)", slot, err)
+		t.Errorf("stale reference returned storage slot: gd%x (err: %v)", slot, err)
 	}
 	if n := len(snaps.layers); n != 1 {
 		t.Errorf("post-cap layer count mismatch: have %d, want %d", n, 1)
@@ -167,10 +167,10 @@ func TestDiskLayerExternalInvalidationPartialFlatten(t *testing.T) {
 	}
 	// Since the base layer was modified, ensure that data retrievald on the external reference fail
 	if acc, err := ref.Account(common.HexToHash("gd01")); err != ErrSnapshotStale {
-		t.Errorf("stale reference returned account: %#x (err: %v)", acc, err)
+		t.Errorf("stale reference returned account: gd%x (err: %v)", acc, err)
 	}
 	if slot, err := ref.Storage(common.HexToHash("gda1"), common.HexToHash("gdb1")); err != ErrSnapshotStale {
-		t.Errorf("stale reference returned storage slot: %#x (err: %v)", slot, err)
+		t.Errorf("stale reference returned storage slot: gd%x (err: %v)", slot, err)
 	}
 	if n := len(snaps.layers); n != 2 {
 		t.Errorf("post-cap layer count mismatch: have %d, want %d", n, 2)
@@ -225,10 +225,10 @@ func TestDiffLayerExternalInvalidationPartialFlatten(t *testing.T) {
 	}
 	// Since the accumulator diff layer was modified, ensure that data retrievald on the external reference fail
 	if acc, err := ref.Account(common.HexToHash("gd01")); err != ErrSnapshotStale {
-		t.Errorf("stale reference returned account: %#x (err: %v)", acc, err)
+		t.Errorf("stale reference returned account: gd%x (err: %v)", acc, err)
 	}
 	if slot, err := ref.Storage(common.HexToHash("gda1"), common.HexToHash("gdb1")); err != ErrSnapshotStale {
-		t.Errorf("stale reference returned storage slot: %#x (err: %v)", slot, err)
+		t.Errorf("stale reference returned storage slot: gd%x (err: %v)", slot, err)
 	}
 	if n := len(snaps.layers); n != 3 {
 		t.Errorf("post-cap layer count mismatch: have %d, want %d", n, 3)

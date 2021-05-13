@@ -424,7 +424,7 @@ func (api *PrivateDebugAPI) StorageRangeAt(blockHash common.Hash, txIndex int, c
 	// Retrieve the block
 	block := api.gdtu.blockchain.GetBlockByHash(blockHash)
 	if block == nil {
-		return StorageRangeResult{}, fmt.Errorf("block %#x not found", blockHash)
+		return StorageRangeResult{}, fmt.Errorf("block gd%x not found", blockHash)
 	}
 	_, _, statedb, release, err := api.gdtu.stateAtTransaction(block, txIndex, 0)
 	if err != nil {

@@ -50,11 +50,11 @@ func TestVector_KDF(t *testing.T) {
 
 	destKey := &testKeyB.PublicKey
 	s := deriveKeys(sha256.New, ephKey, destKey, net.nodeA.id(), net.nodeB.id(), cdata)
-	t.Logf("ephemeral-key = %#x", ephKey.D)
-	t.Logf("dest-pubkey = %#x", EncodePubkey(destKey))
-	t.Logf("node-id-a = %#x", net.nodeA.id().Bytes())
-	t.Logf("node-id-b = %#x", net.nodeB.id().Bytes())
-	t.Logf("challenge-data = %#x", cdata)
+	t.Logf("ephemeral-key = gd%x", ephKey.D)
+	t.Logf("dest-pubkey = gd%x", EncodePubkey(destKey))
+	t.Logf("node-id-a = gd%x", net.nodeA.id().Bytes())
+	t.Logf("node-id-b = gd%x", net.nodeB.id().Bytes())
+	t.Logf("challenge-data = gd%x", cdata)
 	check(t, "initiator-key", s.writeKey, hexutil.MustDecode("gddccc82d81bd610f4f76d3ebe97a40571"))
 	check(t, "recipient-key", s.readKey, hexutil.MustDecode("gdac74bb8773749920b0d3a8881c173ec5"))
 }
@@ -71,10 +71,10 @@ func TestVector_IDSignature(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	t.Logf("static-key = %#x", key.D)
-	t.Logf("challenge-data = %#x", cdata)
-	t.Logf("ephemeral-pubkey = %#x", ephkey)
-	t.Logf("node-id-B = %#x", destID.Bytes())
+	t.Logf("static-key = gd%x", key.D)
+	t.Logf("challenge-data = gd%x", cdata)
+	t.Logf("ephemeral-pubkey = gd%x", ephkey)
+	t.Logf("node-id-B = gd%x", destID.Bytes())
 	expected := "gd94852a1e2318c4e5e9d422c98eaf19d1d90d876b29cd06ca7cb7546d0fff7b484fe86c09a064fe72bdbef73ba8e9c34df0cd2b53e9d65528c2c7f336d5dfc6e6"
 	check(t, "id-signature", sig, hexutil.MustDecode(expected))
 }
@@ -101,9 +101,9 @@ func check(t *testing.T, what string, x, y []byte) {
 	t.Helper()
 
 	if !bytes.Equal(x, y) {
-		t.Errorf("wrgdtu %s: %#x != %#x", what, x, y)
+		t.Errorf("wrgdtu %s: gd%x != gd%x", what, x, y)
 	} else {
-		t.Logf("%s = %#x", what, x)
+		t.Logf("%s = gd%x", what, x)
 	}
 }
 

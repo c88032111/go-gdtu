@@ -283,7 +283,7 @@ func dbGet(ctx *cli.Context) error {
 		log.Info("Get operation failed", "error", err)
 		return err
 	}
-	fmt.Printf("key %#x:\n\t%#x\n", key, data)
+	fmt.Printf("key gd%x:\n\tgd%x\n", key, data)
 	return nil
 }
 
@@ -335,7 +335,7 @@ func dbPut(ctx *cli.Context) error {
 	}
 	data, err = db.Get(key)
 	if err == nil {
-		fmt.Printf("Previous value:\n%#x\n", data)
+		fmt.Printf("Previous value:\ngd%x\n", data)
 	}
 	return db.Put(key, value)
 }

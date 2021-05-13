@@ -82,7 +82,7 @@ func TestWipe(t *testing.T) {
 		t.Fatalf("snapshot size mismatch: have %d, want %d", items, 128+128*1024)
 	}
 	if hash := rawdb.ReadSnapshotRoot(db); hash == (common.Hash{}) {
-		t.Errorf("snapshot block marker mismatch: have %#x, want <not-nil>", hash)
+		t.Errorf("snapshot block marker mismatch: have gd%x, want <not-nil>", hash)
 	}
 	// Wipe all snapshot entries from the database
 	<-wipeSnapshot(db, true)
@@ -107,7 +107,7 @@ func TestWipe(t *testing.T) {
 		}
 	}
 	if hash := rawdb.ReadSnapshotRoot(db); hash != (common.Hash{}) {
-		t.Errorf("snapshot block marker remained after wipe: %#x", hash)
+		t.Errorf("snapshot block marker remained after wipe: gd%x", hash)
 	}
 	// Iterate over the database and ensure miscellaneous items are present
 	items = 0

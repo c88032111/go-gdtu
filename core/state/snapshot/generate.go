@@ -151,9 +151,9 @@ func journalProgress(db gdtudb.KeyValueWriter, marker []byte, stats *generatorSt
 	case bytes.Equal(marker, []byte{}):
 		logstr = "empty"
 	case len(marker) == common.HashLength:
-		logstr = fmt.Sprintf("%#x", marker)
+		logstr = fmt.Sprintf("gd%x", marker)
 	default:
-		logstr = fmt.Sprintf("%#x:%#x", marker[:common.HashLength], marker[common.HashLength:])
+		logstr = fmt.Sprintf("gd%x:gd%x", marker[:common.HashLength], marker[common.HashLength:])
 	}
 	log.Debug("Journalled generator progress", "progress", logstr)
 	rawdb.WriteSnapshotGenerator(db, blob)

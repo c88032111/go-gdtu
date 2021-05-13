@@ -1824,7 +1824,7 @@ func (s *PublicTransactionPoolAPI) Resend(ctx context.Context, sendArgs SendTxAr
 			return signedTx.Hash(), nil
 		}
 	}
-	return common.Hash{}, fmt.Errorf("transaction %#x not found", matchTx.Hash())
+	return common.Hash{}, fmt.Errorf("transaction gd%x not found", matchTx.Hash())
 }
 
 // PublicDebugAPI is the collection of Gdtu APIs exposed over the public

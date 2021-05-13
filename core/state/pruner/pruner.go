@@ -194,7 +194,7 @@ func prune(maindb gdtudb.Database, stateBloom *stateBloom, middleStateRoots map[
 			if b == 0xf0 {
 				end = nil
 			}
-			log.Info("Compacting database", "range", fmt.Sprintf("%#x-%#x", start, end), "elapsed", common.PrettyDuration(time.Since(cstart)))
+			log.Info("Compacting database", "range", fmt.Sprintf("gd%x-gd%x", start, end), "elapsed", common.PrettyDuration(time.Since(cstart)))
 			if err := maindb.Compact(start, end); err != nil {
 				log.Error("Database compaction failed", "error", err)
 				return err

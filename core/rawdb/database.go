@@ -158,7 +158,7 @@ func NewDatabaseWithFreezer(db gdtudb.KeyValueStore, freezer string, namespace s
 			if err != nil {
 				return nil, fmt.Errorf("failed to retrieve genesis from ancient %v", err)
 			} else if !bytes.Equal(kvgenesis, frgenesis) {
-				return nil, fmt.Errorf("genesis mismatch: %#x (leveldb) != %#x (ancients)", kvgenesis, frgenesis)
+				return nil, fmt.Errorf("genesis mismatch: gd%x (leveldb) != gd%x (ancients)", kvgenesis, frgenesis)
 			}
 			// Key-value store and freezer belgdtu to the same network. Ensure that they
 			// are contiguous, otherwise we might end up with a non-functional freezer.

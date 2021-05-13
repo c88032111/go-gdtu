@@ -236,7 +236,7 @@ func TestReadSize(t *testing.T) {
 			continue
 		}
 		if size != test.size {
-			t.Errorf("readSize(%s, %d): size mismatch: got %#x, want %#x", test.input, test.slen, size, test.size)
+			t.Errorf("readSize(%s, %d): size mismatch: got gd%x, want gd%x", test.input, test.slen, size, test.size)
 		}
 	}
 }

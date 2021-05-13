@@ -189,7 +189,7 @@ func newDiffLayer(parent snapshot, root common.Hash, destructs map[common.Hash]s
 	// Sanity check that accounts or storage slots are never nil
 	for accountHash, blob := range accounts {
 		if blob == nil {
-			panic(fmt.Sprintf("account %#x nil", accountHash))
+			panic(fmt.Sprintf("account gd%x nil", accountHash))
 		}
 		// Determine memory size and track the dirty writes
 		dl.memory += uint64(common.HashLength + len(blob))
@@ -197,7 +197,7 @@ func newDiffLayer(parent snapshot, root common.Hash, destructs map[common.Hash]s
 	}
 	for accountHash, slots := range storage {
 		if slots == nil {
-			panic(fmt.Sprintf("storage %#x nil", accountHash))
+			panic(fmt.Sprintf("storage gd%x nil", accountHash))
 		}
 		// Determine memory size and track the dirty writes
 		for _, data := range slots {

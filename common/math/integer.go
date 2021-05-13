@@ -53,7 +53,7 @@ func (i *HexOrDecimal64) UnmarshalText(input []byte) error {
 
 // MarshalText implements encoding.TextMarshaler.
 func (i HexOrDecimal64) MarshalText() ([]byte, error) {
-	return []byte(fmt.Sprintf("%#x", uint64(i))), nil
+	return []byte(fmt.Sprintf("gd%x", uint64(i))), nil
 }
 
 // ParseUint64 parses s as an integer in decimal or hexadecimal syntax.

@@ -15,7 +15,7 @@ func TestF(t *testing.T) {
 			F(&h, test.m, test.c, test.f, test.rounds)
 
 			if !reflect.DeepEqual(test.hOut, h) {
-				t.Errorf("Unexpected result\nExpected: [%#x]\nActual:   [%#x]\n", test.hOut, h)
+				t.Errorf("Unexpected result\nExpected: [gd%x]\nActual:   [gd%x]\n", test.hOut, h)
 			}
 		})
 	}

@@ -196,7 +196,7 @@ func (gdtu *Gdtu) stateAtTransaction(block *types.Block, txIndex int, reexec uin
 	// Create the parent state database
 	parent := gdtu.blockchain.GetBlock(block.ParentHash(), block.NumberU64()-1)
 	if parent == nil {
-		return nil, vm.BlockContext{}, nil, nil, fmt.Errorf("parent %#x not found", block.ParentHash())
+		return nil, vm.BlockContext{}, nil, nil, fmt.Errorf("parent gd%x not found", block.ParentHash())
 	}
 	statedb, release, err := gdtu.stateAtBlock(parent, reexec)
 	if err != nil {
@@ -220,12 +220,12 @@ func (gdtu *Gdtu) stateAtTransaction(block *types.Block, txIndex int, reexec uin
 		statedb.Prepare(tx.Hash(), block.Hash(), idx)
 		if _, err := core.ApplyMessage(vmenv, msg, new(core.GasPool).AddGas(tx.Gas())); err != nil {
 			release()
-			return nil, vm.BlockContext{}, nil, nil, fmt.Errorf("transaction %#x failed: %v", tx.Hash(), err)
+			return nil, vm.BlockContext{}, nil, nil, fmt.Errorf("transaction gd%x failed: %v", tx.Hash(), err)
 		}
 		// Ensure any modifications are committed to the state
 		// Only delete empty objects if EIP158/161 (a.k.a Spurious Dragon) is in effect
 		statedb.Finalise(vmenv.ChainConfig().IsEIP158(block.Number()))
 	}
 	release()
-	return nil, vm.BlockContext{}, nil, nil, fmt.Errorf("transaction index %d out of range for block %#x", txIndex, block.Hash())
+	return nil, vm.BlockContext{}, nil, nil, fmt.Errorf("transaction index %d out of range for block gd%x", txIndex, block.Hash())
 }

@@ -183,7 +183,7 @@ func loadSnapshot(diskdb gdtudb.KeyValueStore, triedb *trie.Database, cache int,
 		// it's not in recovery mode, returns the error here for
 		// rebuilding the entire snapshot forcibly.
 		if legacy || !recovery {
-			return nil, fmt.Errorf("head doesn't match snapshot: have %#x, want %#x", head, root)
+			return nil, fmt.Errorf("head doesn't match snapshot: have gd%x, want gd%x", head, root)
 		}
 		// It's in snapshot recovery, the assumption is held that
 		// the disk layer is always higher than chain head. It can

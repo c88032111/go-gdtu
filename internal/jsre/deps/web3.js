@@ -3019,6 +3019,7 @@ var ContractFactory = function (gdtu, abi) {
                 }
             });
         } else {
+            // console.log('options',JSON.stringify(options))
             var hash = this.gdtu.sendTransaction(options);
             // add the transaction hash
             contract.transactionHash = hash;

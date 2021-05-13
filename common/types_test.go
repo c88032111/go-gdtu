@@ -423,7 +423,7 @@ func TestAddress_Format(t *testing.T) {
 		},
 		{
 			name: "printf-#x",
-			out:  fmt.Sprintf("%#x", addr),
+			out:  fmt.Sprintf("gd%x", addr),
 			want: "gdb26f2b342aab24bcf63ea218c6a9274d30ab9a15",
 		},
 		{
@@ -503,12 +503,12 @@ func TestHash_Format(t *testing.T) {
 		},
 		{
 			name: "printf-#x",
-			out:  fmt.Sprintf("%#x", hash),
+			out:  fmt.Sprintf("gd%x", hash),
 			want: "gdb26f2b342aab24bcf63ea218c6a9274d30ab9a15a218c6a9274d30ab9a151000",
 		},
 		{
 			name: "printf-#X",
-			out:  fmt.Sprintf("%#X", hash),
+			out:  fmt.Sprintf("gd%x", hash),
 			want: "GDB26F2B342AAB24BCF63EA218C6A9274D30AB9A15A218C6A9274D30AB9A151000",
 		},
 		{
