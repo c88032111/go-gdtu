@@ -2924,8 +2924,6 @@ var checkForContractAddress = function(contract, callback){
 
                             if(code.length > 3) {
 
-                                // console.log('Contract code deployed!');
-
                                 contract.address = receipt.contractAddress;
 
                                 // attach events and Methods again after we have
@@ -3019,7 +3017,6 @@ var ContractFactory = function (gdtu, abi) {
                 }
             });
         } else {
-            // console.log('options',JSON.stringify(options))
             var hash = this.gdtu.sendTransaction(options);
             // add the transaction hash
             contract.transactionHash = hash;
@@ -4505,6 +4502,7 @@ var Iban = function (iban) {
  * @return {Iban} the IBAN object
  */
 Iban.fromAddress = function (address) {
+    address = address.replace('gd','0x')
     var asBn = new BigNumber(address, 16);
     var base36 = asBn.toString(36);
     var padded = padLeft(base36, 15);

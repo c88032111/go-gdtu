@@ -449,7 +449,7 @@ func (s *Server) StreamNetworkEvents(w http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-	clientGone := req.Context().Done()
+	clientGgdtu := req.Context().Done()
 	for {
 		select {
 		case event := <-events:
@@ -461,7 +461,7 @@ func (s *Server) StreamNetworkEvents(w http.ResponseWriter, req *http.Request) {
 				writeErr(err)
 				return
 			}
-		case <-clientGone:
+		case <-clientGgdtu:
 			return
 		}
 	}
