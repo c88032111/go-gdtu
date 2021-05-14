@@ -11,13 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f29ba0e-858c-4d53-b220-302de75b30df" name="Default Changelist" comment="init project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/jsre/deps/bindata.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/jsre/deps/bindata.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/jsre/deps/web3.js" beforeDir="false" afterPath="$PROJECT_DIR$/internal/jsre/deps/web3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/p2p/simulations/http.go" beforeDir="false" afterPath="$PROJECT_DIR$/p2p/simulations/http.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signer/fourbyte/4byte.go" beforeDir="false" afterPath="$PROJECT_DIR$/signer/fourbyte/4byte.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signer/fourbyte/4byte.json" beforeDir="false" afterPath="$PROJECT_DIR$/signer/fourbyte/4byte.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/params/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/params/config.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,9 +192,10 @@
       <screen x="0" y="23" width="1792" height="1045" />
     </state>
     <state x="530" y="255" key="RollbackChangesDialog/0.23.1792.1045@0.23.1792.1045" timestamp="1620162134646" />
-    <state x="496" y="285" key="Vcs.Push.Dialog.v2" timestamp="1620872282699">
-      <screen x="0" y="23" width="1792" height="1044" />
+    <state x="496" y="285" key="Vcs.Push.Dialog.v2" timestamp="1621031591233">
+      <screen x="0" y="23" width="1792" height="1043" />
     </state>
+    <state x="496" y="285" key="Vcs.Push.Dialog.v2/0.23.1792.1043@0.23.1792.1043" timestamp="1621031591233" />
     <state x="496" y="285" key="Vcs.Push.Dialog.v2/0.23.1792.1044@0.23.1792.1044" timestamp="1620872282699" />
     <state x="496" y="285" key="Vcs.Push.Dialog.v2/0.23.1792.1045@0.23.1792.1045" timestamp="1620163103001" />
     <state x="496" y="286" key="Vcs.Push.Dialog.v2/0.23.1792.1046@0.23.1792.1046" timestamp="1620315468056" />
@@ -214,10 +209,10 @@
       <screen x="0" y="23" width="1792" height="1047" />
     </state>
     <state x="130" y="124" width="1592" height="844" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1792.1047@0.23.1792.1047" timestamp="1620327428326" />
-    <state x="693" y="299" width="604" height="548" key="find.popup" timestamp="1621031455115">
+    <state x="693" y="299" width="604" height="548" key="find.popup" timestamp="1621031734772">
       <screen x="0" y="23" width="1792" height="1043" />
     </state>
-    <state x="693" y="299" width="604" height="548" key="find.popup/0.23.1792.1043@0.23.1792.1043" timestamp="1621031455115" />
+    <state x="693" y="299" width="604" height="548" key="find.popup/0.23.1792.1043@0.23.1792.1043" timestamp="1621031734772" />
     <state x="346" y="296" width="921" height="606" key="find.popup/0.23.1792.1044@0.23.1792.1044" timestamp="1620942109281" />
     <state x="693" y="300" width="604" height="548" key="find.popup/0.23.1792.1045@0.23.1792.1045" timestamp="1620251741882" />
     <state x="693" y="300" width="604" height="549" key="find.popup/0.23.1792.1046@0.23.1792.1046" timestamp="1620315026682" />
